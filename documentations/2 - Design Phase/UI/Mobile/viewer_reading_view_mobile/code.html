@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>Deliciae</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-background": "#1a1c1c", "on-secondary-container": "#646464", "surface-container": "#eeeeee", "on-error": "#ffffff", "on-secondary": "#ffffff", "secondary": "#5e5e5e", "primary-fixed-dim": "#c8c6c5", "on-tertiary-container": "#00993a", "secondary-fixed": "#e3e2e2", "on-surface-variant": "#444748", "on-error-container": "#93000a", "outline": "#747878", "tertiary-container": "#002107", "surface-container-highest": "#e2e2e2", "on-primary-fixed-variant": "#474646", "inverse-surface": "#2f3131", "tertiary-fixed": "#6bff83", "error-container": "#ffdad6", "on-surface": "#1a1c1c", "surface-dim": "#dadada", "error": "#ba1a1a", "surface": "#ffffff", "on-primary-fixed": "#1c1b1b", "surface-variant": "#e2e2e2", "secondary-fixed-dim": "#c7c6c6", "primary": "#000000", "on-tertiary-fixed": "#002107", "inverse-on-surface": "#f0f1f1", "on-secondary-fixed": "#1b1c1c", "on-tertiary-fixed-variant": "#00531b", "surface-container-lowest": "#ffffff", "surface-tint": "#5f5e5e", "primary-container": "#1c1b1b", "on-primary-container": "#858383", "secondary-container": "#e3e2e2", "inverse-primary": "#c8c6c5", "on-secondary-fixed-variant": "#464747", "background": "#ffffff", "tertiary-fixed-dim": "#00e55b", "on-primary": "#ffffff", "surface-container-low": "#f3f3f4", "surface-bright": "#f9f9f9", "tertiary": "#000000", "on-tertiary": "#ffffff", "surface-container-high": "#e8e8e8", "outline-variant": "#c4c7c7", "primary-fixed": "#e5e2e1" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "space-xl": "2.5rem", "space-2xl": "4rem", "margin": "3rem", "margin-mobile": "1.25rem", "space-xs": "0.25rem", "space-3xl": "6rem", "space-md": "1rem", "space-sm": "0.5rem", "gutter": "1.5rem", "gutter-mobile": "1rem", "space-lg": "1.5rem", "space-xxs": "0.125rem" }, fontFamily: { "display-hero": ["Newsreader"], "headline-lg-mobile": ["Newsreader"], "code-body": ["JetBrains Mono"], "label-mono-sm": ["JetBrains Mono"], "display-hero-mobile": ["Newsreader"], "headline-md": ["Newsreader"], "label-mono-xs": ["JetBrains Mono"], "headline-lg": ["Newsreader"], "headline-sm": ["Newsreader"], "body-md": ["Inter"], "body-lg": ["Inter"], "body-sm": ["Inter"], "body-editorial-lg": ["Newsreader"] }, fontSize: { "display-hero": ["72px", { lineHeight: "80px", letterSpacing: "-0.03em", fontWeight: "400" }], "headline-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "400" }], "code-body": ["13px", { lineHeight: "22px", fontWeight: "400" }], "label-mono-sm": ["11px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "500" }], "display-hero-mobile": ["44px", { lineHeight: "52px", letterSpacing: "-0.02em", fontWeight: "400" }], "headline-md": ["32px", { lineHeight: "40px", letterSpacing: "-0.015em", fontWeight: "400" }], "label-mono-xs": ["10px", { lineHeight: "14px", letterSpacing: "0.08em", fontWeight: "600" }], "headline-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "400" }], "headline-sm": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "500" }], "body-md": ["15px", { lineHeight: "24px", fontWeight: "400" }], "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }], "body-sm": ["13px", { lineHeight: "20px", fontWeight: "400" }], "body-editorial-lg": ["21px", { lineHeight: "34px", letterSpacing: "-0.005em", fontWeight: "400" }] } } } };</script><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#ffffff;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin-mobile flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="w-2 h-2 rounded-full bg-[#00FF66] animate-pulse"></span><span class="font-code-body text-code-body font-semibold tracking-tight text-primary">Deliciae / 0.9.4</span></div><div class="flex items-center gap-space-xs"><button aria-label="Search or Command Palette" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Navigation Drawer" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">segment</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full px-margin-mobile pt-14 pb-20 bg-surface"><div class="flex flex-col w-full text-on-surface">
+<!-- Breadcrumb & Seed Meta -->
+<section class="flex flex-col gap-space-xs pt-space-md">
+<div class="flex items-center gap-space-xs font-label-mono-xs text-label-mono-xs uppercase tracking-wider text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+<span>Digital Garden</span>
+<span class="text-outline-variant">/</span>
+<span>03 Solitude</span>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-semibold">Tract #144</span>
+</div>
+<div class="flex items-center justify-between text-secondary font-label-mono-sm text-label-mono-sm mt-space-xxs">
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant">October 14, 2025</span>
+<span class="text-outline-variant">•</span>
+<span class="flex items-center gap-1 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim inline-block"></span>
+<span>7 min read</span>
+</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs bg-surface-container-high text-on-surface px-space-xs py-0.5 rounded uppercase tracking-wider">Evergreen</span>
+</div>
+<!-- Main Title -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mt-space-sm leading-tight tracking-tight">
+      Architecture of Silence: Spatial Poetics in Digital Gardens
+    </h1>
+<p class="font-headline-sm text-headline-sm italic text-secondary mt-space-xxs">
+      On tectonic memory, deliberate enclosure, and the restoration of unbroken contemplation.
+    </p>
+<!-- Author & Action Row -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between mt-space-sm">
+<div class="flex items-center gap-space-sm">
+<img class="w-11 h-11 rounded-full object-cover shadow-sm" data-alt="Editorial black and white photographic portrait of Elena Vance, an intellectual woman with round spectacles looking thoughtfully toward soft natural window light, subtle brutalist architectural framing in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUEotPsi2YQckO1ttRMurc_pjjx-jXMVA99_cBMhubu_6kqtHVwJ-IC5m4ZeywoTNPgl_W6g8XdBd219djCEhftx2EiOPlF04-XIGu16DgsuF7y7XYFKz3cjpe_Tk760cmL3faQJQrasAtfx2r2unFFUJpgpe1gEJGgz_m2-fxXCkZdzBRHvHcMYy-KGwVUJTExISY7xjsZnVMDqcCiKtvL4zJnvliUMoNRsLLag"/>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1">
+<span class="font-body-md text-body-md font-semibold text-primary truncate">Elena Vance</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary truncate">Archivist &amp; Essayist — Deliciae Core</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xxs">
+<button aria-label="Bookmark Note" class="w-9 h-9 rounded bg-surface flex items-center justify-center text-primary shadow-sm hover:bg-surface-container transition-colors" id="bookmarkBtn">
+<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+</button>
+<button aria-label="Share Tract" class="w-9 h-9 rounded bg-surface flex items-center justify-center text-primary shadow-sm hover:bg-surface-container transition-colors" id="shareBtn">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Mobile Collapsible Corpus Directory -->
+<section class="mt-space-md">
+<div class="bg-surface-container-low rounded-lg overflow-hidden transition-all duration-200 shadow-sm">
+<button aria-expanded="false" class="w-full p-space-sm flex items-center justify-between text-left focus:outline-none" id="directoryToggle">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-primary text-[20px]">account_tree</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary uppercase tracking-wider">Corpus Directory (48 Nodes)</span>
+<span class="font-body-sm text-body-sm text-primary font-medium truncate">Active: 03 Solitude &amp; Architecture</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary-fixed-dim bg-primary px-1.5 py-0.5 rounded font-semibold">ACTV</span>
+<span class="material-symbols-outlined text-primary text-[20px] transition-transform duration-200" id="directoryChevron">expand_more</span>
+</div>
+</button>
+<!-- Expandable Tree Content -->
+<div class="hidden px-space-sm pb-space-sm" id="directoryPanel">
+<div class="bg-surface rounded p-space-sm font-code-body text-code-body text-secondary flex flex-col gap-1.5 shadow-sm">
+<div class="text-outline-variant font-label-mono-xs uppercase tracking-wider">root / 03-solitude / index.scm</div>
+<a class="flex items-center gap-2 text-secondary hover:text-primary py-0.5" href="#">
+<span class="text-outline-variant">├──</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span class="truncate">#142 Monastic Cells &amp; Hyperlinks</span>
+</a>
+<a class="flex items-center gap-2 text-secondary hover:text-primary py-0.5" href="#">
+<span class="text-outline-variant">├──</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span class="truncate">#143 The Acoustic Velocity of Thought</span>
+</a>
+<div class="flex items-center gap-2 text-primary font-semibold py-0.5 bg-surface-container rounded px-1 -mx-1">
+<span class="text-primary font-bold">├──</span>
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="truncate">#144 Architecture of Silence (Current)</span>
+</div>
+<a class="flex items-center gap-2 text-secondary hover:text-primary py-0.5 pl-4" href="#">
+<span class="text-outline-variant">├──</span>
+<span class="text-outline-variant text-[11px]">↳</span>
+<span class="truncate">§1.1 Spatial Hermeneutics</span>
+</a>
+<a class="flex items-center gap-2 text-secondary hover:text-primary py-0.5 pl-4" href="#">
+<span class="text-outline-variant">└──</span>
+<span class="text-outline-variant text-[11px]">↳</span>
+<span class="truncate">§1.2 The Topology of Withholding</span>
+</a>
+<a class="flex items-center gap-2 text-secondary hover:text-primary py-0.5" href="#">
+<span class="text-outline-variant">└──</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span class="truncate">#145 Ruin Landscapes of the Net</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Reading Canvas -->
+<article class="mt-space-lg flex flex-col gap-space-md">
+<!-- Primary Paragraph with Drop Cap -->
+<div class="relative font-body-editorial-lg text-body-editorial-lg text-primary leading-relaxed">
+<span class="float-left text-[68px] leading-[58px] font-display-hero text-primary mr-3 mt-1 pb-1 font-normal select-none">
+        T
+      </span>
+      he modern web is designed as an amphitheater of incessant clamor, where every surface screams for the currency of instant gaze. Yet true intellectual compounding occurs not in stadium arenas, but inside cloistered sanctuaries. To cultivate a 
+      <a class="font-medium underline decoration-tertiary-fixed-dim decoration-2 underline-offset-4 text-primary hover:bg-surface-container px-0.5 rounded transition-colors inline-flex items-baseline" href="#citation-1">
+        rhizomatic garden<sup class="text-tertiary-fixed-dim font-code-body ml-0.5 font-bold">[1]</sup>
+</a>, one must deliberate upon the physical masonry of silence—constructing corridors that resist frictionless drift and restore temporal sovereignty.
+    </div>
+<p class="font-body-editorial-lg text-body-editorial-lg text-primary leading-relaxed">
+      When we reframe hypermedia from stream-based velocity to spatial architecture, an essay ceases to be an ephemeral timeline discharge. Instead, it becomes an inhabited cell. The walls do not merely keep things out; they frame an aperture through which thought organizes itself before being offered to the world.
+    </p>
+<!-- Embedded Figure Card -->
+<figure class="bg-surface-container-low rounded-lg p-space-sm shadow-sm flex flex-col gap-space-xs my-space-sm">
+<div class="relative overflow-hidden rounded">
+<img class="w-full h-56 object-cover shadow-inner" data-alt="Monochrome architectural photograph of a brutalist study cloister with sharp daylight casting deep linear shadows across bare concrete desks, stone alcoves, and sparse wooden shelves holding ancient folios" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7ApCJ4DlEpie8HkEP_CniLlqBdMed8p8EEAIzYRhUdliQ3KYCcXLSP44a77HtC2DO2htj9M8a6A8gJvrjz1pbpc-gCl5qmaKmOoxtSrXA3F36XOLkiBwsZIGG4uV3yu1qruRBzwDXj3PW73defiUszC5ROMmDcyLKeKlfkM2BKcKLzA0LxwlePZmAdz382xYHChQ5OAKKTi8UAblNInzBcTKQzOUCiH1sHPk99Q"/>
+<div class="absolute bottom-2 left-2 bg-primary/80 backdrop-blur-sm text-on-primary px-2 py-0.5 rounded font-label-mono-xs text-label-mono-xs tracking-wider">
+          PLATE 04 · CAPTURE 1960
+        </div>
+</div>
+<figcaption class="font-label-mono-xs text-label-mono-xs text-secondary tracking-wide uppercase pt-space-xxs flex items-center justify-between">
+<span>FIG. 04 — SPATIAL INHABITATION OF KNOWLEDGE, LA TOURETTE STUDY CELLS</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+</figcaption>
+</figure>
+<p class="font-body-editorial-lg text-body-editorial-lg text-primary leading-relaxed">
+      Consider the monastic scriptorium. Silence was not an absence of sound, but an engineered acoustic field where parchment friction and quill strokes became telemetry. Within our networked equivalents, the architecture must reject algorithmic recommendation cascades in favor of deliberate backlink structures.
+    </p>
+<!-- Blockquote with Slime Green Accented Box -->
+<div class="bg-surface-container-high rounded-r-lg p-space-md shadow-sm relative overflow-hidden my-space-xs">
+<div class="absolute top-0 bottom-0 left-0 w-1.5 bg-tertiary-fixed-dim"></div>
+<blockquote class="font-headline-sm text-headline-sm italic text-primary leading-snug pl-space-xs">
+        “We shape our digital architecture; thereafter, our digital architectures shape our capacity for unbroken contemplation.”
+      </blockquote>
+<div class="mt-space-sm pl-space-xs flex items-center gap-space-xs">
+<span class="w-2 h-0.5 bg-tertiary-fixed-dim"></span>
+<cite class="font-label-mono-xs text-label-mono-xs not-italic text-secondary tracking-wider uppercase">Elena Vance, Tracts on Networked Solitude</cite>
+</div>
+</div>
+<p class="font-body-editorial-lg text-body-editorial-lg text-primary leading-relaxed">
+      Below is the topological grammar governing this garden space. Every link is weighted by cognitive recency and epistemic distance, computed deterministically through a minimal Lisp evaluator:
+    </p>
+<!-- Code Snippet Container -->
+<div class="bg-primary rounded-lg p-space-md text-on-primary shadow-md overflow-x-auto my-space-xs">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm bg-surface-container-highest/10 -mx-space-md px-space-md -mt-space-md pt-space-sm">
+<div class="flex items-center gap-space-xs font-label-mono-xs text-label-mono-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="text-tertiary-fixed font-semibold">deliciae-topology.scm</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary-fixed opacity-75">SCHEME / R7RS</span>
+</div>
+<pre class="font-code-body text-code-body leading-relaxed text-surface-variant overflow-x-auto"><code><span class="text-secondary-fixed">;; Garden Node Topological Matrix</span>
+(<span class="text-tertiary-fixed font-semibold">define</span> (<span class="text-on-primary font-medium">evaluate-node-density</span> node radius)
+  (<span class="text-tertiary-fixed font-semibold">let*</span> ([tethers (garden:fetch-backlinks node)]
+         [friction (<span class="text-tertiary-fixed">lambda</span> (d) (/ <span class="text-secondary-fixed">1.0</span> (+ <span class="text-secondary-fixed">1</span> (* d d))))])
+    (<span class="text-tertiary-fixed font-semibold">foldl</span> (<span class="text-tertiary-fixed">lambda</span> (acc link)
+             (+ acc (friction (node:distance link))))
+           <span class="text-secondary-fixed">0.000</span>
+           (filter (node:within? radius) tethers))))</code></pre>
+</div>
+<p class="font-body-editorial-lg text-body-editorial-lg text-primary leading-relaxed">
+      In sustaining these enclosures, we provide a refuge for ideas requiring decades rather than minutes of incubation. The garden grows quiet, not desolate.
+    </p>
+<!-- Footnotes & Citations Section -->
+<section class="mt-space-lg bg-surface-container-low rounded-lg p-space-md shadow-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider text-secondary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+          Corpus Citations &amp; Margins
+        </span>
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary-fixed-dim bg-primary px-1.5 py-0.5 rounded">2 References</span>
+</div>
+<div class="flex flex-col gap-space-sm mt-space-sm font-body-sm text-body-sm">
+<div class="flex gap-space-xs text-on-surface-variant p-space-xs rounded bg-surface shadow-xs" id="citation-1">
+<span class="font-code-body text-code-body text-tertiary-fixed-dim font-bold">[1]</span>
+<div class="flex flex-col min-w-0">
+<span class="text-primary font-medium">Deleuze, Gilles &amp; Guattari, Félix (1987)</span>
+<span class="text-secondary italic">A Thousand Plateaus: Capitalism and Schizophrenia.</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline-variant mt-0.5">Minnesota University Press · Node ID: #CP-871</span>
+</div>
+</div>
+<div class="flex gap-space-xs text-on-surface-variant p-space-xs rounded bg-surface shadow-xs" id="citation-2">
+<span class="font-code-body text-code-body text-tertiary-fixed-dim font-bold">[2]</span>
+<div class="flex flex-col min-w-0">
+<span class="text-primary font-medium">Bachelard, Gaston (1958)</span>
+<span class="text-secondary italic">The Poetics of Space: The Cell, the Nook, and the Drawer.</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline-variant mt-0.5">Presses Universitaires de France · Node ID: #BAC-58</span>
+</div>
+</div>
+</div>
+</section>
+</article>
+<!-- Reader Feedback Heart / Seed Stats Row -->
+<div class="flex items-center justify-between py-space-md px-space-xs mt-space-md">
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1.5 bg-surface-container px-3 py-1.5 rounded text-primary hover:bg-surface-container-high transition-colors" id="seedHeartBtn">
+<span class="material-symbols-outlined text-[18px] text-primary">eco</span>
+<span class="font-label-mono-xs text-label-mono-xs font-semibold">Tended (148)</span>
+</button>
+<button class="flex items-center gap-1.5 bg-surface-container px-3 py-1.5 rounded text-primary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">share_location</span>
+<span class="font-label-mono-xs text-label-mono-xs font-semibold">Backlinks (12)</span>
+</button>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-outline tracking-wider">END TRACT</span>
+</div>
+<!-- Space clearance for fixed floating trigger and navigation -->
+<div class="h-20"></div>
+<!-- Floating Mobile Discussion Trigger (Bottom-Right) -->
+<div class="fixed bottom-20 right-margin-mobile z-40">
+<button aria-label="Open Discussions Drawer" class="flex items-center gap-2 bg-primary text-on-primary px-4 py-3 rounded-full shadow-lg hover:shadow-xl active:scale-95 transition-all" id="openDiscussionBtn">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary-fixed-dim"></span>
+</span>
+<span class="font-label-mono-sm text-label-mono-sm font-semibold tracking-wide">Discussions (8)</span>
+<span class="material-symbols-outlined text-[18px]">forum</span>
+</button>
+</div>
+<!-- Mobile Bottom Dialogue Drawer Overlay -->
+<div class="fixed inset-0 bg-primary/40 backdrop-blur-xs z-50 hidden transition-opacity duration-200" id="drawerBackdrop">
+<div class="fixed bottom-0 left-0 right-0 max-h-[751px] bg-surface rounded-t-xl shadow-2xl flex flex-col transform translate-y-full transition-transform duration-300 ease-out z-50" id="discussionDrawer">
+<!-- Drag handle / Drawer Top -->
+<div class="flex flex-col items-center pt-space-xs pb-space-xs bg-surface-container-low rounded-t-xl">
+<div class="w-10 h-1 bg-outline-variant rounded-full mb-space-xs"></div>
+<div class="w-full px-space-md flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="font-body-md text-body-md font-semibold text-primary">Marginalia &amp; Discourse</span>
+<span class="font-label-mono-xs text-label-mono-xs bg-surface-container-high px-1.5 py-0.5 rounded text-on-surface">8 Notes</span>
+</div>
+<button aria-label="Close Discussion Sheet" class="w-8 h-8 rounded-full bg-surface flex items-center justify-center text-primary shadow-xs" id="closeDiscussionBtn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Scrollable Comments Area -->
+<div class="flex-1 overflow-y-auto px-space-md py-space-sm flex flex-col gap-space-md max-h-[442px]">
+<!-- Comment 1 -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-space-xs shadow-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<img class="w-7 h-7 rounded-full object-cover" data-alt="Monochrome avatar photo of Marcus K., a minimalist designer with clean framing and soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjSQ_hTX1rsElRKdNlIg7mIMQy_R8ANsryOrd1CKLCyfBa_JzCzSq5Dw17Y51ySmuk5Ohap_zD4J67U5mBpZHju7RdHmOSIFoGH_LzZ5xV4HAj9tJKHIzNTXApbIaAe38KcjIIDxzyKRQ0ygUlkPA2njhN4MaT5Qu737BkWafmoYwipMnmPymYeIk14RxOJhVI3-vtfq5L3fIZo76Uhu6O65_iq7pT6fcuN88uSQ"/>
+<span class="font-body-sm text-body-sm font-semibold text-primary">Marcus K.</span>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary">• 2h ago</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs bg-surface-container-highest px-1 rounded text-secondary">re: §1.2</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-normal">
+            The comparison to La Tourette's study cells resonates deeply. How do you propose handling real-time peer pings without shattering this acoustic field?
+          </p>
+<div class="flex items-center gap-space-md pt-space-xxs text-secondary font-label-mono-xs text-label-mono-xs">
+<button class="hover:text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">thumb_up</span> 4
+            </button>
+<button class="hover:text-primary">Reply</button>
+</div>
+</div>
+<!-- Comment 2 -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-space-xs shadow-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<img class="w-7 h-7 rounded-full object-cover" data-alt="Editorial candid avatar portrait of Aria Sato, software philosopher with architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu-4WGg9pXgt76Bbo7SIvAhZQctoJINFromlxKjBiur881aqTfhHquTgfroO8oV6mhxCcLRAY0smaOVvLh4RoDNC_8R_QV2fhfqmQHxCoO8dmox_6IM46ESOLQD-q04gN_hO3k0S-Gzpg70Yw9ijE4WqB9b8UlzSSJ-pMdHhO168dzgkw5MnrRYV6s3SRXlFxX_UO7U6M9Mlgzw6iYYQDMOw-DnRwtTplANnAN6A"/>
+<span class="font-body-sm text-body-sm font-semibold text-primary">Aria Sato</span>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary">• 6h ago</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary-fixed-dim bg-primary px-1 rounded">Author Pin</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-normal">
+            We implemented a 4-hour delay queue on node pings in our internal cluster. Silence must be synthetically fortified, or defaults will erode it.
+          </p>
+<div class="flex items-center gap-space-md pt-space-xxs text-secondary font-label-mono-xs text-label-mono-xs">
+<button class="hover:text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">thumb_up</span> 11
+            </button>
+<button class="hover:text-primary">Reply</button>
+</div>
+</div>
+</div>
+<!-- Comment Composer Panel -->
+<div class="p-space-sm bg-surface-container-high rounded-t-lg shadow-lg flex flex-col gap-space-xs pb-safe">
+<textarea class="w-full bg-surface text-on-surface p-space-sm rounded font-body-sm text-body-sm resize-none focus:outline-none shadow-inner" id="commentInput" placeholder="Append marginal note to Tract #144..." rows="2"></textarea>
+<div class="flex items-center justify-between pt-space-xxs">
+<label class="flex items-center gap-space-xs cursor-pointer select-none">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 accent-black cursor-pointer" id="privateNote" type="checkbox"/>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary">Private note to Elena</span>
+</label>
+<button class="bg-primary hover:bg-surface-container-highest text-on-primary px-4 py-2 rounded flex items-center gap-1.5 transition-colors shadow-sm active:scale-95" id="postCommentBtn">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider font-semibold">Post Note</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function initReaderInteractions() {
+    // Directory Accordion Toggle
+    const dirToggle = document.getElementById('directoryToggle');
+    const dirPanel = document.getElementById('directoryPanel');
+    const dirChevron = document.getElementById('directoryChevron');
+
+    if (dirToggle && dirPanel && dirChevron) {
+      dirToggle.addEventListener('click', () => {
+        const isExpanded = dirToggle.getAttribute('aria-expanded') === 'true';
+        dirToggle.setAttribute('aria-expanded', !isExpanded);
+        dirPanel.classList.toggle('hidden');
+        dirChevron.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+    }
+
+    // Bookmark Toggle Interaction
+    const bookmarkBtn = document.getElementById('bookmarkBtn');
+    if (bookmarkBtn) {
+      bookmarkBtn.addEventListener('click', () => {
+        const icon = bookmarkBtn.querySelector('.material-symbols-outlined');
+        if (icon) {
+          const isBookmarked = icon.textContent === 'bookmark';
+          icon.textContent = isBookmarked ? 'bookmark_border' : 'bookmark';
+          bookmarkBtn.classList.toggle('text-tertiary-container', !isBookmarked);
+        }
+      });
+    }
+
+    // Floating Discussion Drawer open/close
+    const openBtn = document.getElementById('openDiscussionBtn');
+    const closeBtn = document.getElementById('closeDiscussionBtn');
+    const backdrop = document.getElementById('drawerBackdrop');
+    const drawer = document.getElementById('discussionDrawer');
+    const postBtn = document.getElementById('postCommentBtn');
+    const commentInput = document.getElementById('commentInput');
+
+    function openDrawer() {
+      if (backdrop && drawer) {
+        backdrop.classList.remove('hidden');
+        // Trigger transition
+        setTimeout(() => {
+          drawer.classList.remove('translate-y-full');
+        }, 10);
+      }
+    }
+
+    function closeDrawer() {
+      if (backdrop && drawer) {
+        drawer.classList.add('translate-y-full');
+        setTimeout(() => {
+          backdrop.classList.add('hidden');
+        }, 300);
+      }
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openDrawer);
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if (backdrop) {
+      backdrop.addEventListener('click', (e) => {
+        if (e.target === backdrop) closeDrawer();
+      });
+    }
+
+    // Post comment simulated feedback
+    if (postBtn && commentInput) {
+      postBtn.addEventListener('click', () => {
+        const text = commentInput.value.trim();
+        if (text.length > 0) {
+          postBtn.innerHTML = '<span class="font-label-mono-xs text-label-mono-xs text-tertiary-fixed font-semibold">Tethered ✓</span>';
+          commentInput.value = '';
+          setTimeout(() => {
+            postBtn.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span><span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider font-semibold">Post Note</span>';
+            closeDrawer();
+          }, 800);
+        }
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/95 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold [&amp;_span.indicator]:opacity-100"><div class="h-16 px-space-md grid grid-cols-4 items-center"><a class="flex flex-col items-center justify-center h-full min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="garden-feed" href="#"><span class="material-symbols-outlined text-[22px]">eco</span><span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider mt-space-xxs">Garden</span><span class="indicator w-1 h-1 rounded-full bg-[#00FF66] mt-0.5 opacity-0 transition-opacity"></span></a><a class="flex flex-col items-center justify-center h-full min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="author-library" href="#"><span class="material-symbols-outlined text-[22px]">local_library</span><span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider mt-space-xxs">Library</span><span class="indicator w-1 h-1 rounded-full bg-[#00FF66] mt-0.5 opacity-0 transition-opacity"></span></a><a class="flex flex-col items-center justify-center h-full min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="content-editor" href="#"><span class="material-symbols-outlined text-[22px]">edit_note</span><span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider mt-space-xxs">Editor</span><span class="indicator w-1 h-1 rounded-full bg-[#00FF66] mt-0.5 opacity-0 transition-opacity"></span></a><a aria-current="page" class="flex flex-col items-center justify-center h-full min-h-[44px] transition-colors text-primary font-semibold [&amp;_span.indicator]:opacity-100" data-path="viewer-reading-view" href="#"><span class="material-symbols-outlined text-[22px]">menu_book</span><span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider mt-space-xxs">Reader</span><span class="indicator w-1 h-1 rounded-full bg-[#00FF66] mt-0.5 opacity-0 transition-opacity"></span></a></div></nav></body></html>

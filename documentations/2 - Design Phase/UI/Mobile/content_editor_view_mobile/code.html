@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>Deliciae</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-background": "#1a1c1c", "on-secondary-container": "#646464", "surface-container": "#eeeeee", "on-error": "#ffffff", "on-secondary": "#ffffff", "secondary": "#5e5e5e", "primary-fixed-dim": "#c8c6c5", "on-tertiary-container": "#00993a", "secondary-fixed": "#e3e2e2", "on-surface-variant": "#444748", "on-error-container": "#93000a", "outline": "#747878", "tertiary-container": "#002107", "surface-container-highest": "#e2e2e2", "on-primary-fixed-variant": "#474646", "inverse-surface": "#2f3131", "tertiary-fixed": "#6bff83", "error-container": "#ffdad6", "on-surface": "#1a1c1c", "surface-dim": "#dadada", "error": "#ba1a1a", "surface": "#ffffff", "on-primary-fixed": "#1c1b1b", "surface-variant": "#e2e2e2", "secondary-fixed-dim": "#c7c6c6", "primary": "#000000", "on-tertiary-fixed": "#002107", "inverse-on-surface": "#f0f1f1", "on-secondary-fixed": "#1b1c1c", "on-tertiary-fixed-variant": "#00531b", "surface-container-lowest": "#ffffff", "surface-tint": "#5f5e5e", "primary-container": "#1c1b1b", "on-primary-container": "#858383", "secondary-container": "#e3e2e2", "inverse-primary": "#c8c6c5", "on-secondary-fixed-variant": "#464747", "background": "#ffffff", "tertiary-fixed-dim": "#00e55b", "on-primary": "#ffffff", "surface-container-low": "#f3f3f4", "surface-bright": "#f9f9f9", "tertiary": "#000000", "on-tertiary": "#ffffff", "surface-container-high": "#e8e8e8", "outline-variant": "#c4c7c7", "primary-fixed": "#e5e2e1" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "space-xl": "2.5rem", "space-2xl": "4rem", "margin": "3rem", "margin-mobile": "1.25rem", "space-xs": "0.25rem", "space-3xl": "6rem", "space-md": "1rem", "space-sm": "0.5rem", "gutter": "1.5rem", "gutter-mobile": "1rem", "space-lg": "1.5rem", "space-xxs": "0.125rem" }, fontFamily: { "display-hero": ["Newsreader"], "headline-lg-mobile": ["Newsreader"], "code-body": ["JetBrains Mono"], "label-mono-sm": ["JetBrains Mono"], "display-hero-mobile": ["Newsreader"], "headline-md": ["Newsreader"], "label-mono-xs": ["JetBrains Mono"], "headline-lg": ["Newsreader"], "headline-sm": ["Newsreader"], "body-md": ["Inter"], "body-lg": ["Inter"], "body-sm": ["Inter"], "body-editorial-lg": ["Newsreader"] }, fontSize: { "display-hero": ["72px", { lineHeight: "80px", letterSpacing: "-0.03em", fontWeight: "400" }], "headline-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "400" }], "code-body": ["13px", { lineHeight: "22px", fontWeight: "400" }], "label-mono-sm": ["11px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "500" }], "display-hero-mobile": ["44px", { lineHeight: "52px", letterSpacing: "-0.02em", fontWeight: "400" }], "headline-md": ["32px", { lineHeight: "40px", letterSpacing: "-0.015em", fontWeight: "400" }], "label-mono-xs": ["10px", { lineHeight: "14px", letterSpacing: "0.08em", fontWeight: "600" }], "headline-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "400" }], "headline-sm": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "500" }], "body-md": ["15px", { lineHeight: "24px", fontWeight: "400" }], "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }], "body-sm": ["13px", { lineHeight: "20px", fontWeight: "400" }], "body-editorial-lg": ["21px", { lineHeight: "34px", letterSpacing: "-0.005em", fontWeight: "400" }] } } } };</script><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#ffffff;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin-mobile flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="w-2 h-2 rounded-full bg-[#00FF66] animate-pulse"></span><span class="font-code-body text-code-body font-semibold tracking-tight text-primary">Deliciae / 0.9.4</span></div><div class="flex items-center gap-space-xs"><button aria-label="Search or Command Palette" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Navigation Drawer" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">segment</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full px-margin-mobile pt-14 pb-20 bg-surface"><div class="flex flex-col w-full pb-6 space-y-4">
+<!-- Document Sub-Header & Telemetry Strip -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl p-3 shadow-sm space-y-2.5">
+<div class="flex items-center justify-between">
+<a class="inline-flex items-center gap-1 font-label-mono-xs text-label-mono-xs text-secondary hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[14px]">arrow_back</span>
+<span>LIB / 02_essays / architecture-of-silence.md</span>
+</a>
+<span class="inline-flex items-center gap-1 font-label-mono-xs text-label-mono-xs text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-[#00FF66] animate-pulse"></span>
+        Saved 2m ago
+      </span>
+</div>
+<!-- Status & Primary Actions Mobile Row -->
+<div class="flex items-center justify-between gap-2 pt-1">
+<div class="flex items-center gap-2">
+<button class="bg-[#00FF66] text-primary font-body-sm text-body-sm font-semibold px-2.5 py-1.5 rounded flex items-center gap-1.5 shadow-[2px_2px_0px_#111111] active:translate-x-0.5 active:translate-y-0.5 transition-transform" id="checkpoint-btn" onclick="triggerCheckpointPulse()">
+<span class="material-symbols-outlined text-[16px]">bookmark_border</span>
+<span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider font-semibold">Checkpoint</span>
+</button>
+<span class="font-label-mono-xs text-label-mono-xs bg-surface-container-high text-on-surface px-2 py-1 rounded inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-secondary">call_split</span>
+          essays/solitude-v2
+        </span>
+</div>
+<!-- Public Release Toggle Switch -->
+<div class="flex items-center gap-1.5 bg-surface-container-low px-2 py-1 rounded">
+<span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider text-secondary">Public</span>
+<button aria-checked="true" class="w-8 h-4 bg-primary rounded-full relative p-0.5 transition-colors focus:outline-none" id="toggle-release" onclick="togglePublicState()" role="switch">
+<span class="block w-3 h-3 bg-[#00FF66] rounded-full translate-x-4 transition-transform" id="toggle-thumb"></span>
+</button>
+</div>
+</div>
+</div>
+<!-- Document Title & Canonical Spec Header -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl p-4 shadow-sm space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider text-secondary">DOCUMENT TITLE / H1 CANON</span>
+<span class="font-label-mono-xs text-label-mono-xs bg-primary text-[#00FF66] font-semibold px-1.5 py-0.5 rounded">EVERGREEN</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight leading-snug">
+      Architecture of Silence: Spatial Poetics in Digital Gardens
+    </h1>
+<div class="flex items-center gap-2 pt-1 font-label-mono-xs text-label-mono-xs text-secondary">
+<span>Deliciae Thought Engine</span>
+<span>•</span>
+<span>Canonical ID #ESS-094</span>
+</div>
+</div>
+<!-- Segmented View Switcher: Markdown vs Rendered vs Split -->
+<div class="bg-surface-container rounded-xl p-1 grid grid-cols-3 gap-1 shadow-inner">
+<button class="py-1.5 text-center font-label-mono-xs text-label-mono-xs uppercase tracking-wider rounded transition-all text-secondary hover:text-primary" id="view-raw-btn" onclick="setViewMode('raw')">
+      Markdown Source
+    </button>
+<button class="py-1.5 text-center font-label-mono-xs text-label-mono-xs uppercase tracking-wider rounded transition-all bg-primary text-on-primary font-semibold shadow-sm flex items-center justify-center gap-1" id="view-rendered-btn" onclick="setViewMode('rendered')">
+<span class="w-1.5 h-1.5 rounded-full bg-[#00FF66]"></span>
+      Rendered
+    </button>
+<button class="py-1.5 text-center font-label-mono-xs text-label-mono-xs uppercase tracking-wider rounded transition-all text-secondary hover:text-primary" id="view-split-btn" onclick="setViewMode('split')">
+      Split View
+    </button>
+</div>
+<!-- Formatting Toolbar (Sticky Feel Mobile Strip) -->
+<div class="bg-surface-container-lowest rounded-xl p-1.5 shadow-sm overflow-x-auto" id="formatting-toolbar">
+<div class="flex items-center space-x-1 min-w-max px-1">
+<button class="w-8 h-8 rounded bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center font-code-body text-code-body font-bold text-primary active:scale-95" title="Bold">B</button>
+<button class="w-8 h-8 rounded bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center font-code-body text-code-body italic text-primary active:scale-95" title="Italic">I</button>
+<button class="w-8 h-8 rounded bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center font-label-mono-xs text-label-mono-xs font-semibold text-primary active:scale-95" title="Heading 2">H2</button>
+<button class="w-8 h-8 rounded bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center font-label-mono-xs text-label-mono-xs font-semibold text-primary active:scale-95" title="Heading 3">H3</button>
+<div class="w-px h-5 bg-surface-container-highest mx-1"></div>
+<button class="w-8 h-8 rounded bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-primary active:scale-95" title="Link">
+<span class="material-symbols-outlined text-[16px]">link</span>
+</button>
+<button class="w-8 h-8 rounded bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-primary active:scale-95" title="Quote">
+<span class="material-symbols-outlined text-[16px]">format_quote</span>
+</button>
+<button class="w-8 h-8 rounded bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-primary active:scale-95" title="Code snippet">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+<button class="w-8 h-8 rounded bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-primary active:scale-95" title="Formula">
+<span class="material-symbols-outlined text-[16px]">functions</span>
+</button>
+<button class="w-8 h-8 rounded bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-primary active:scale-95" title="Insert Media">
+<span class="material-symbols-outlined text-[16px]">photo_library</span>
+</button>
+<button class="w-8 h-8 rounded bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-primary active:scale-95" title="Backlink Bracket">
+<span class="font-code-body text-code-body text-secondary">[[ ]]</span>
+</button>
+</div>
+</div>
+<!-- Markdown Source Pane -->
+<section class="hidden flex flex-col space-y-3" id="pane-raw">
+<!-- Frontmatter Card -->
+<div class="bg-surface-container-low rounded-xl p-3.5 shadow-sm space-y-1">
+<div class="flex items-center justify-between mb-1 pb-1">
+<span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">tune</span>
+          YAML FRONTMATTER
+        </span>
+<span class="font-label-mono-xs text-label-mono-xs bg-[#00FF66] text-primary px-1.5 py-0.5 rounded font-semibold">VALIDATED</span>
+</div>
+<pre class="font-code-body text-code-body text-on-surface whitespace-pre-wrap leading-relaxed select-all">---
+title: "Architecture of Silence: Spatial Poetics in Digital Gardens"
+author: Deliciae Thought Engine
+tags: [epistemology, solitude, design]
+stage: evergreen
+visibility: public
+version: 2.1.0
+---</pre>
+</div>
+<!-- Raw Markdown Input Simulation -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col space-y-3">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider text-secondary">SOURCE EDITOR / BUFFER 01</span>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary font-mono">UTF-8 • LF</span>
+</div>
+<div class="font-code-body text-code-body text-on-surface space-y-2.5 leading-relaxed font-mono">
+<p class="text-secondary">## 01. The Poetics of Non-Interference</p>
+<p class="text-on-surface">When we construct digital rooms for reading, we are constructing shelters from communicative overload. In classical Japanese tea architecture (chashitsu), the doorway is purposely low, demanding a bowed physical posture that strips the occupant of worldly status.</p>
+<div class="bg-surface-container-low p-3 rounded text-on-surface">
+<span class="text-secondary">&gt; "Silence is not the absence of sound, but the presence of an acoustic room wherein thought becomes architectural."</span>
+</div>
+<p class="text-on-surface">Hypertext should not be an escalator pushing the reader along an algorithmic funnel; it should behave as stone tiles placed across wet moss, intentional and quiet.</p>
+<p class="text-secondary">math<br/>V(solitude) = \int_{0}^{t} \left(\Delta \text{clarity} - \text{noise}\right) dt<br/></p>
+</div>
+</div>
+</section>
+<!-- Live Rendered Preview Section -->
+<section class="flex flex-col space-y-4" id="pane-rendered">
+<!-- Visual Image Accent (Editorial Framing) -->
+<div class="relative w-full h-44 rounded-xl overflow-hidden shadow-sm bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Monochrome architectural photograph of a brutalist stone reading alcove illuminated by a single slim geometric skylight. High contrast deep black shadows and soft clean white textures, minimalist quietude, fine art editorial capture with subtle slime green moss accent growing between stone slabs." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi9w7KRXlSfROv2OuPDQl0VNJUj2ePbTx0ThW9-9abs9FpYIfxms8x6ru84VmKOuQ1dKBcOm3gHj0lsvASEhmcfwvDV9AGcOcMoP3EdBMIqSeOiwWfj68k8j0futpxkx0mn3Qx2USIXa7l47h2uCYnOD_TuejA9i3PJ2uD__PJXFQXrqG2VigdU32_8VldH2A7gBI6FhA0pGt2GP9ZpsBcnKwYv1Z3m-bstgkU0A"/>
+<div class="absolute bottom-2 left-2 bg-primary/90 text-on-primary backdrop-blur px-2.5 py-1 rounded font-label-mono-xs text-label-mono-xs flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#00FF66]"></span>
+<span>PLATE 04 // SPATIAL VOLUMETRICS</span>
+</div>
+</div>
+<!-- Editorial Prose Sheet -->
+<article class="bg-surface-container-lowest rounded-xl p-5 shadow-sm space-y-4">
+<!-- Article Spec Badge -->
+<div class="flex items-center gap-1.5 pb-2">
+<span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider bg-surface-container-high text-on-surface px-2 py-0.5 rounded font-medium">
+          ESSAY / #02
+        </span>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary uppercase">· OCTOBER 18, 2024 ·</span>
+<span class="font-label-mono-xs text-label-mono-xs text-[#00993a] font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">eco</span>
+          EVERGREEN SEED
+        </span>
+</div>
+<!-- Drop Cap First Paragraph -->
+<div class="font-body-editorial-lg text-body-editorial-lg text-on-surface leading-relaxed">
+<span class="float-left font-display-hero text-[58px] leading-[48px] pr-2 pt-1 font-normal text-primary">W</span>
+        hen we construct digital rooms for reading, we are constructing shelters from communicative overload. In classical Japanese tea architecture (<em>chashitsu</em>), the doorway is purposely low, demanding a bowed physical posture that strips the occupant of worldly status before entering the sacred perimeter of contemplation.
+      </div>
+<!-- High-Contrast Architectural Blockquote Callout -->
+<div class="bg-primary text-on-primary rounded-xl p-4 shadow-sm relative overflow-hidden my-2">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-[#00FF66]"></div>
+<p class="font-headline-sm text-headline-sm italic text-surface pl-2 leading-snug">
+          “Silence is not the absence of sound, but the presence of an acoustic room wherein thought becomes architectural.”
+        </p>
+<div class="pt-2 pl-2 flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider text-secondary-fixed">MARGINAL NOTE // REID, 1982</span>
+<span class="font-label-mono-xs text-label-mono-xs text-[#00FF66] font-mono">§ 14.3</span>
+</div>
+</div>
+<p class="font-body-editorial-lg text-body-editorial-lg text-on-surface leading-relaxed">
+        Hypertext should not behave as an escalator pushing the reader along an algorithmic funnel. Instead, deliberate information architecture acts as stone tiles placed deliberately across wet moss: each step is considered, autonomous, and physically anchored.
+      </p>
+<!-- Contextual Tag Matrix -->
+<div class="pt-2 flex flex-wrap gap-1.5 items-center">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary uppercase tracking-wider mr-1">BRANCHES:</span>
+<span class="font-label-mono-xs text-label-mono-xs bg-surface-container px-2 py-1 rounded text-primary font-medium">#epistemology</span>
+<span class="font-label-mono-xs text-label-mono-xs bg-surface-container px-2 py-1 rounded text-primary font-medium">#solitude</span>
+<span class="font-label-mono-xs text-label-mono-xs bg-surface-container px-2 py-1 rounded text-primary font-medium">#digital-commons</span>
+<span class="font-label-mono-xs text-label-mono-xs bg-[#00FF66] text-primary px-2 py-1 rounded font-semibold">+ link note</span>
+</div>
+</article>
+</section>
+<!-- Mobile Status Footer & Live Telemetry Bar -->
+<footer class="bg-surface-container-lowest rounded-xl p-3 shadow-sm flex flex-col space-y-2">
+<div class="flex items-center justify-between font-label-mono-xs text-label-mono-xs text-secondary">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#00FF66]"></span>
+<span class="text-primary font-semibold">1,842 words</span>
+<span>·</span>
+<span>7 min read</span>
+</div>
+<div class="flex items-center gap-1 font-mono text-secondary">
+<span>rev:</span>
+<span class="text-primary font-semibold">b7e930f</span>
+</div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1 overflow-hidden">
+<div class="bg-[#00FF66] h-full rounded-full" style="width: 68%;"></div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<button class="font-label-mono-xs text-label-mono-xs text-primary hover:text-secondary flex items-center gap-1 py-1" onclick="alert('Revision history: 12 commits logged')">
+<span class="material-symbols-outlined text-[14px]">history</span>
+<span>Inspect Revision Log (12)</span>
+</button>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary bg-surface-container-high px-2 py-0.5 rounded">
+        Deliciae Sync Engine v0.9.4
+      </span>
+</div>
+</footer>
+</div>
+<script>
+  function setViewMode(mode) {
+    const rawPane = document.getElementById('pane-raw');
+    const renderedPane = document.getElementById('pane-rendered');
+    const btnRaw = document.getElementById('view-raw-btn');
+    const btnRendered = document.getElementById('view-rendered-btn');
+    const btnSplit = document.getElementById('view-split-btn');
+
+    const resetBtn = (btn) => {
+      btn.className = "py-1.5 text-center font-label-mono-xs text-label-mono-xs uppercase tracking-wider rounded transition-all text-secondary hover:text-primary";
+    };
+
+    const activateBtn = (btn) => {
+      btn.className = "py-1.5 text-center font-label-mono-xs text-label-mono-xs uppercase tracking-wider rounded transition-all bg-primary text-on-primary font-semibold shadow-sm flex items-center justify-center gap-1";
+    };
+
+    resetBtn(btnRaw);
+    resetBtn(btnRendered);
+    resetBtn(btnSplit);
+
+    if (mode === 'raw') {
+      rawPane.classList.remove('hidden');
+      renderedPane.classList.add('hidden');
+      activateBtn(btnRaw);
+    } else if (mode === 'rendered') {
+      rawPane.classList.add('hidden');
+      renderedPane.classList.remove('hidden');
+      activateBtn(btnRendered);
+    } else if (mode === 'split') {
+      rawPane.classList.remove('hidden');
+      renderedPane.classList.remove('hidden');
+      activateBtn(btnSplit);
+    }
+  }
+
+  function togglePublicState() {
+    const btn = document.getElementById('toggle-release');
+    const thumb = document.getElementById('toggle-thumb');
+    const isChecked = btn.getAttribute('aria-checked') === 'true';
+
+    if (isChecked) {
+      btn.setAttribute('aria-checked', 'false');
+      btn.classList.remove('bg-primary');
+      btn.classList.add('bg-surface-container-high');
+      thumb.classList.remove('translate-x-4', 'bg-[#00FF66]');
+      thumb.classList.add('translate-x-0.5', 'bg-secondary');
+    } else {
+      btn.setAttribute('aria-checked', 'true');
+      btn.classList.remove('bg-surface-container-high');
+      btn.classList.add('bg-primary');
+      thumb.classList.remove('translate-x-0.5', 'bg-secondary');
+      thumb.classList.add('translate-x-4', 'bg-[#00FF66]');
+    }
+  }
+
+  function triggerCheckpointPulse() {
+    const btn = document.getElementById('checkpoint-btn');
+    btn.classList.add('scale-95');
+    setTimeout(() => {
+      btn.classList.remove('scale-95');
+    }, 150);
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/95 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold [&amp;_span.indicator]:opacity-100"><div class="h-16 px-space-md grid grid-cols-4 items-center"><a class="flex flex-col items-center justify-center h-full min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="garden-feed" href="#"><span class="material-symbols-outlined text-[22px]">eco</span><span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider mt-space-xxs">Garden</span><span class="indicator w-1 h-1 rounded-full bg-[#00FF66] mt-0.5 opacity-0 transition-opacity"></span></a><a class="flex flex-col items-center justify-center h-full min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="author-library" href="#"><span class="material-symbols-outlined text-[22px]">local_library</span><span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider mt-space-xxs">Library</span><span class="indicator w-1 h-1 rounded-full bg-[#00FF66] mt-0.5 opacity-0 transition-opacity"></span></a><a aria-current="page" class="flex flex-col items-center justify-center h-full min-h-[44px] transition-colors text-primary font-semibold [&amp;_span.indicator]:opacity-100" data-path="content-editor" href="#"><span class="material-symbols-outlined text-[22px]">edit_note</span><span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider mt-space-xxs">Editor</span><span class="indicator w-1 h-1 rounded-full bg-[#00FF66] mt-0.5 opacity-0 transition-opacity"></span></a><a class="flex flex-col items-center justify-center h-full min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="viewer-reading-view" href="#"><span class="material-symbols-outlined text-[22px]">menu_book</span><span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wider mt-space-xxs">Reader</span><span class="indicator w-1 h-1 rounded-full bg-[#00FF66] mt-0.5 opacity-0 transition-opacity"></span></a></div></nav></body></html>

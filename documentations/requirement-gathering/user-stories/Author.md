@@ -23,7 +23,7 @@
 ## 1.3 - Viewing all sorts of Contents
 
 1. As an **Author**, I want to have a sorted library according to the types of content.
-2. This includes **Public, Private, Unreleased, Released, Trash** contents.
+2. This includes **Public, Private, Unreleased, Released & Trash** contents.
 3. I want this to be fetched fast and in a paginated manner.
 4. I also want to see **list of properly nested pages** with their **icon and title** and when I click a page, I want to see all the contents inside of that particular page.
 5. I want a **three-dot action trigger** such that, when triggered it shows options of **Editing and Deleting**.
@@ -68,10 +68,10 @@
 
 ## 1.8 - Messaging my Viewer/s
 
-1. As an **Author** and also the **Product Engineer** behind this application, I would like to message **my Viewer/s**.
+1. As an **Author**, I do not want a viewer to **comment using profanity** messages on a post.
 2. I can send them any **private message** so that makes it **1-1 message**.
 3. I can send **all of them any message** that is related to **news or updates** in the application.
-4. I do not want messages to **editable**, but messages can be **deleted permanently** from both end of users.
+4. I do not want messages to be **editable**, but messages can be **deleted permanently** from both end of users.
 5. A viewer **is allowed** to access this feature but can only **read the messages** from the **Author**.
 
 ## 1.9 - Banning a Viewer

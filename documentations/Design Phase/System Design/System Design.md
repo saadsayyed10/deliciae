@@ -22,3 +22,4 @@
 5. **Settings** is the management place for all types of users.
    1. **Author** can see all the data, trash, viewers, messages, comments, replies on comments, banned users, delete account options and logout option.
    2. **Viewers** can see all the viewers, messages from author, their own comments, delete account option and logout option.
+   3. For faster retrieval we use Redis as the caching server for all settings features.

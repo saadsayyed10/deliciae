@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<meta content="mobile_stack" name="shell-type"/>
+<title>Deliciae / Settings / Account Lifecycle</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#f9f9f9",
+            "surface-card": "#ffffff",
+            "border-subtle": "#e7e7e7",
+            "border-card": "#e5e5e5",
+            "primary": "#000000",
+            "on-surface": "#121212",
+            "on-surface-muted": "#666666",
+            "on-surface-light": "#8a8a8a",
+            "brand-accent": "#00FF66",
+            "brand-accent-hover": "#00e65c",
+            "brand-accent-subtle": "rgba(0, 255, 102, 0.12)",
+            "brand-accent-dark": "#008a38",
+            "error-subtle": "#fff5f5",
+            "error-border": "#fecaca",
+            "error-text": "#dc2626"
+          },
+          fontFamily: {
+            serif: ["Newsreader", "serif"],
+            sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    @layer base {
+      html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        color: #121212;
+      }
+      body {
+        overscroll-behavior: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 16px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-[#f9f9f9] font-sans text-on-surface min-h-screen flex flex-col antialiased selection:bg-[#00FF66] selection:text-black">
+<!-- STANDARD DELICIAE TOP APP BAR -->
+<header class="sticky top-0 z-50 w-full bg-[#f9f9f9]/90 backdrop-blur-md border-b border-[#e7e7e7] pt-safe">
+<!-- Brand row -->
+<div class="h-14 px-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#00FF66] shadow-[0_0_8px_rgba(0,255,102,0.8)]"></span>
+<span class="font-mono text-[13px] font-semibold tracking-wider text-black">Deliciae / 0.9.4</span>
+</div>
+<div class="flex items-center gap-1 text-black">
+<button aria-label="Search" class="w-9 h-9 flex items-center justify-center rounded-md hover:bg-black/5 active:scale-95 transition">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+<button aria-label="Menu" class="w-9 h-9 flex items-center justify-center rounded-md hover:bg-black/5 active:scale-95 transition">
+<span class="material-symbols-outlined text-[20px]">menu</span>
+</button>
+<div class="ml-1 w-8 h-8 rounded-full border border-black/15 overflow-hidden p-0.5 bg-white">
+<img alt="Author Profile Avatar" class="w-full h-full rounded-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqIzhgufmSbt6kixexAoBfR0NuJdMdzQMpjtBgvBBFaYxg9fwZxgCt2jPlzrN3e1V94VTV9952hyG5thYC0ztBSrAlsE50lvJNpKK-K7283xR0DeQwMdVg8_yUUrj0ezg_GzbMk6AlB3P8wllAJMQSONPtZdZnsZVFPS8IgQeFamBwRVWUtv_QlDHwXN5DmHJRKtVfUk9ZdOm49ukNUcovixWxJI_-jGxwjPsPWw"/>
+</div>
+</div>
+</div>
+<!-- Sub-header Breadcrumb Context Path -->
+<div class="px-4 py-2 border-t border-[#f0f0f0] bg-white/70 flex items-center justify-between text-[11px] font-mono">
+<a class="flex items-center gap-1.5 text-neutral-600 hover:text-black font-medium tracking-wide" href="javascript:history.back()">
+<span class="material-symbols-outlined text-[14px]">arrow_back</span>
+<span>SETTINGS / ACCOUNT_LIFECYCLE</span>
+</a>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-50 text-[#008a38] border border-emerald-200/60 font-semibold text-[10px]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#00FF66] animate-pulse"></span>
+          JWT: ACTIVE
+        </span>
+<span class="text-neutral-400 text-[10px] hidden sm:inline">14ms</span>
+</div>
+</div>
+</header>
+<!-- MAIN EDITORIAL CONTENT -->
+<main class="flex-1 w-full max-w-xl mx-auto px-4 pt-5 pb-24 space-y-6">
+<!-- Page Title & Curator Intent Deck -->
+<div class="space-y-1.5">
+<div class="flex items-center gap-2 font-mono text-[10px] text-neutral-400 uppercase tracking-widest">
+<span>AUTHOR_AUTHORITY</span>
+<span>·</span>
+<span>NODE: GARDEN_01</span>
+</div>
+<h1 class="font-serif text-[30px] font-normal leading-tight text-black tracking-[-0.01em]">
+        Identity &amp; Protocol Settings
+      </h1>
+<p class="font-serif italic text-[15px] leading-relaxed text-neutral-600 pt-0.5">
+        Configure cryptographic identity profiles, synchronous editorial credentials, and garden author authority states.
+      </p>
+</div>
+<!-- Live Sync Health Micro-strip -->
+<div class="bg-white border border-[#e7e7e7] rounded-[4px] p-2.5 px-3 flex items-center justify-between text-[11px] font-mono shadow-sm">
+<div class="flex items-center gap-2 truncate text-neutral-800">
+<span class="w-2 h-2 rounded-full bg-[#00FF66] shrink-0"></span>
+<span class="font-medium truncate">PUT /api/v1/author/account [200 OK]</span>
+</div>
+<span class="text-neutral-400 shrink-0 pl-2">14ms latency</span>
+</div>
+<!-- MODULE 01: CORE ATTRIBUTES -->
+<section class="space-y-2">
+<div class="flex items-center justify-between font-mono text-[10px] tracking-wider uppercase">
+<span class="font-bold text-black flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-black"></span>
+          MODULE_01 // CORE_ATTRIBUTES
+        </span>
+<span class="text-neutral-400">SPRINT_1.7_1.9</span>
+</div>
+<div class="bg-white border border-[#e7e7e7] rounded-[4px] p-4 space-y-4 shadow-sm">
+<!-- Avatar Block -->
+<div class="flex items-start gap-4 pb-3 border-b border-[#f2f2f2]">
+<div class="relative shrink-0">
+<img alt="Author avatar portrait" class="w-[72px] h-[72px] rounded-[4px] object-cover bg-neutral-100 border border-[#e7e7e7]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqIzhgufmSbt6kixexAoBfR0NuJdMdzQMpjtBgvBBFaYxg9fwZxgCt2jPlzrN3e1V94VTV9952hyG5thYC0ztBSrAlsE50lvJNpKK-K7283xR0DeQwMdVg8_yUUrj0ezg_GzbMk6AlB3P8wllAJMQSONPtZdZnsZVFPS8IgQeFamBwRVWUtv_QlDHwXN5DmHJRKtVfUk9ZdOm49ukNUcovixWxJI_-jGxwjPsPWw"/>
+<span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-[#00FF66] border-2 border-white"></span>
+</div>
+<div class="flex-1 min-w-0 space-y-1">
+<span class="font-mono text-[10px] text-neutral-400 uppercase tracking-wider block">BUCKET_ID: SUPABASE-AVATARS</span>
+<div class="font-mono text-[12px] font-semibold text-black truncate">2048 × 2048 px · WEBP</div>
+<div class="font-mono text-[10px] text-neutral-500">Size: 312 KB · ETag: 4d2e8fa</div>
+<div class="flex items-center gap-2 pt-1.5">
+<button class="px-2.5 py-1 rounded-[3px] bg-black text-white hover:bg-neutral-800 font-mono text-[10px] font-medium transition active:scale-95" type="button">
+                REPLACE FILE
+              </button>
+<button class="px-2.5 py-1 rounded-[3px] bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-mono text-[10px] font-medium transition active:scale-95" type="button">
+                PURGE CACHE
+              </button>
+</div>
+</div>
+</div>
+<!-- Asset CDN link -->
+<div class="space-y-1">
+<label class="font-mono text-[10px] text-neutral-400 uppercase tracking-wider block">Direct Asset CDN URL</label>
+<div class="flex items-center bg-[#fafafa] border border-[#e7e7e7] rounded-[3px] px-2.5 py-1.5 font-mono text-[11px]">
+<span class="material-symbols-outlined text-[14px] text-neutral-400 mr-2 shrink-0">link</span>
+<input class="bg-transparent text-neutral-700 w-full outline-none truncate selection:bg-[#00FF66] selection:text-black" readonly="" type="text" value="https://cdn.deliciae.garden/storage/v1/auth/avatar-vance.webp"/>
+<button aria-label="Copy CDN link" class="ml-1 text-neutral-400 hover:text-black p-0.5 transition" type="button">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Name Inputs -->
+<div class="grid grid-cols-2 gap-3 pt-1">
+<div class="space-y-1">
+<label class="font-mono text-[10px] text-neutral-500 uppercase tracking-wider">First Name</label>
+<input class="w-full bg-[#fafafa] border border-[#e7e7e7] rounded-[3px] px-3 py-2 text-[14px] text-black outline-none focus:border-black focus:bg-white transition" type="text" value="Elena"/>
+</div>
+<div class="space-y-1">
+<label class="font-mono text-[10px] text-neutral-500 uppercase tracking-wider">Last Name</label>
+<input class="w-full bg-[#fafafa] border border-[#e7e7e7] rounded-[3px] px-3 py-2 text-[14px] text-black outline-none focus:border-black focus:bg-white transition" type="text" value="Vance"/>
+</div>
+</div>
+<!-- Garden Author Email -->
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<label class="font-mono text-[10px] text-neutral-500 uppercase tracking-wider">Garden Author Email</label>
+<span class="font-mono text-[10px] text-[#008a38] flex items-center gap-1 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-[#00FF66]"></span>
+              SPF/DKIM Verified
+            </span>
+</div>
+<input class="w-full bg-[#fafafa] border border-[#e7e7e7] rounded-[3px] px-3 py-2 font-mono text-[13px] text-black outline-none focus:border-black focus:bg-white transition" type="email" value="elena@deliciae.garden"/>
+</div>
+<!-- Curatorial Role -->
+<div class="space-y-1">
+<label class="font-mono text-[10px] text-neutral-500 uppercase tracking-wider">Editorial Post &amp; Curatorial Role</label>
+<input class="w-full bg-[#fafafa] border border-[#e7e7e7] rounded-[3px] px-3 py-2 text-[14px] text-black outline-none focus:border-black focus:bg-white transition" type="text" value="Archivist &amp; Essayist"/>
+</div>
+<!-- Bio / Curatorial Intent -->
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<label class="font-mono text-[10px] text-neutral-500 uppercase tracking-wider">Curatorial Intent (Bio)</label>
+<span class="font-mono text-[10px] text-neutral-400" id="char-counter">112 / 240 chars</span>
+</div>
+<textarea class="w-full bg-[#fafafa] border border-[#e7e7e7] rounded-[3px] p-3 font-serif italic text-[16px] leading-relaxed text-black outline-none focus:border-black focus:bg-white resize-none transition" id="bio-textarea" maxlength="240" rows="3">Tracing speculative cybernetics, epistemic frameworks, and the preservation of non-linear prose in digital topologies.</textarea>
+</div>
+<!-- Action Buttons -->
+<div class="pt-2 space-y-2">
+<button class="w-full py-3 px-4 rounded-[4px] bg-[#00FF66] text-black font-sans font-bold text-[14px] tracking-wide flex items-center justify-center gap-2 hover:bg-[#00e65c] transition shadow-sm active:scale-[0.99]" id="save-profile-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">published_with_changes</span>
+            Save Changes
+          </button>
+<button class="w-full py-2.5 px-4 rounded-[4px] bg-transparent hover:bg-neutral-100 text-neutral-600 font-mono text-[11px] font-medium tracking-wide transition border border-transparent hover:border-[#e7e7e7]" type="button">
+            Cancel / Revert Unsaved
+          </button>
+</div>
+</div>
+</section>
+<!-- MODULE 02: SYNC ALIAS / LINKED VIEWER -->
+<section class="space-y-2">
+<div class="flex items-center justify-between font-mono text-[10px] tracking-wider uppercase">
+<span class="font-bold text-black flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-black"></span>
+          MODULE_02 // SYNC_ALIAS
+        </span>
+<span class="text-neutral-400">SPRINT_1.8_1.10</span>
+</div>
+<div class="bg-white border border-[#e7e7e7] rounded-[4px] p-4 space-y-3.5 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-[3px] bg-neutral-100 border border-[#e7e7e7] flex items-center justify-center text-black">
+<span class="material-symbols-outlined text-[18px]">public</span>
+</div>
+<div>
+<div class="font-mono text-[13px] font-semibold text-black">@elena_archivist</div>
+<div class="font-mono text-[10px] text-neutral-400">Linked Public Mesh Identity</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-[3px] bg-emerald-50 text-[#008a38] border border-emerald-200/60 font-mono font-semibold text-[10px]">
+            VIEWER_ACTIVE
+          </span>
+</div>
+<!-- Encrypted Key Hash Card -->
+<div class="bg-[#fafafa] border border-[#e7e7e7] rounded-[3px] p-3 space-y-2">
+<div class="flex items-center justify-between font-mono text-[10px]">
+<span class="text-neutral-500 uppercase tracking-wider">Encrypted AES Key Hash</span>
+<span class="text-neutral-700 font-medium">Lease: 58d rem</span>
+</div>
+<div class="flex items-center justify-between font-mono text-[11px] bg-white border border-[#e7e7e7] rounded px-2.5 py-1.5">
+<span class="text-neutral-800 font-semibold truncate">0x8f2d...b14c9e78a02f</span>
+<button aria-label="Copy hash" class="text-neutral-400 hover:text-black pl-2 transition" type="button">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+</button>
+</div>
+</div>
+<div class="pt-0.5 grid grid-cols-2 gap-2">
+<button class="py-2 px-3 rounded-[3px] bg-neutral-100 hover:bg-neutral-200 border border-[#e7e7e7] text-neutral-800 font-mono text-[10px] font-semibold flex items-center justify-center gap-1.5 transition" type="button">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+            REGENERATE ALIAS
+          </button>
+<button class="py-2 px-3 rounded-[3px] bg-white hover:bg-neutral-100 border border-[#e7e7e7] text-neutral-800 font-mono text-[10px] font-semibold flex items-center justify-center gap-1.5 transition" type="button">
+<span class="material-symbols-outlined text-[14px]">download</span>
+            EXPORT MESH
+          </button>
+</div>
+</div>
+</section>
+<!-- MODULE 03: AUTH CREDENTIALS / JWT INSPECTOR -->
+<section class="space-y-2">
+<div class="flex items-center justify-between font-mono text-[10px] tracking-wider uppercase">
+<span class="font-bold text-black flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-black"></span>
+          MODULE_03 // AUTH_CREDENTIALS
+        </span>
+<span class="text-neutral-400">SPRINT_1.3_1.6</span>
+</div>
+<div class="bg-white border border-[#e7e7e7] rounded-[4px] p-4 space-y-3.5 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-black">key</span>
+<span class="font-mono text-[12px] font-semibold uppercase tracking-wider text-black">Bearer JWT HMAC-SHA256</span>
+</div>
+<span class="font-mono text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded border border-[#e7e7e7]">7-DAY TTL</span>
+</div>
+<!-- Token Payload Code Terminal -->
+<div class="bg-[#121212] text-neutral-300 p-3 rounded-[3px] font-mono text-[11px] leading-relaxed border border-black/40 space-y-1">
+<div class="text-[#00FF66] text-[10px] font-semibold">// AUTHOR_ACCESS_TOKEN.SIGNATURE</div>
+<p class="text-neutral-400 break-all">
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.<span class="text-[#00FF66] font-semibold">eyJzdWIiOiIxMmU0LWVsZW5hIiwicm9sZSI6ImF1dGhvcl9jdXN0b2RpYW4iLCJleHAiOjE3NDE4OTI5MjB9</span>.7c98f98da0c49a37e92b512cba
+          </p>
+</div>
+<!-- Token Validity Window Progress -->
+<div class="space-y-1.5">
+<div class="flex justify-between font-mono text-[10px]">
+<span class="text-neutral-500 uppercase tracking-wider">Token Validity Window</span>
+<span class="text-black font-semibold">5d 14h 22m remaining</span>
+</div>
+<div class="w-full h-1.5 bg-neutral-200 rounded-full overflow-hidden">
+<div class="h-full bg-black rounded-full" style="width: 78%;"></div>
+</div>
+</div>
+<div class="pt-1">
+<button class="w-full py-2.5 px-4 rounded-[4px] bg-neutral-100 hover:bg-neutral-200 border border-[#e7e7e7] text-black font-mono text-[11px] font-semibold flex items-center justify-center gap-2 transition active:scale-95" id="sign-out-btn" type="button">
+<span class="material-symbols-outlined text-[16px]">logout</span>
+            TERMINATE SESSION (SIGN OUT)
+          </button>
+</div>
+</div>
+</section>
+<!-- MODULE 04: ZONE PROTOCOL // DEPROVISION -->
+<section class="space-y-2">
+<div class="flex items-center justify-between font-mono text-[10px] tracking-wider uppercase">
+<span class="font-bold text-red-600 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-red-600"></span>
+          CRITICAL // PROTOCOL_DEPROVISION
+        </span>
+<span class="text-red-500/80 bg-red-50 px-1.5 py-0.2 rounded">SPRINT_1.11_1.12</span>
+</div>
+<div class="bg-white border border-red-200 rounded-[4px] p-4 space-y-3 shadow-sm">
+<div class="flex items-start gap-3">
+<div class="w-7 h-7 rounded bg-red-50 text-red-600 flex items-center justify-center shrink-0 border border-red-100 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+</div>
+<div class="space-y-1">
+<span class="font-mono text-[11px] font-bold uppercase tracking-wider text-red-700 block">
+              Irreversible Account Deprovisioning
+            </span>
+<p class="font-serif italic text-[14px] leading-relaxed text-neutral-600">
+              Deleting the single Author account will lock the Deliciae digital garden into immutable archive mode. All uncommitted essays will be purged and encryption master seeds permanently zeroized.
+            </p>
+</div>
+</div>
+<div class="pt-2">
+<button class="w-full py-2.5 px-4 rounded-[4px] bg-white hover:bg-red-50 border border-red-300 text-red-600 font-mono text-[11px] font-semibold flex items-center justify-center gap-2 transition active:scale-95" id="delete-account-trigger" type="button">
+<span class="material-symbols-outlined text-[16px]">delete_forever</span>
+            Permanently Delete Garden Author Account
+          </button>
+</div>
+</div>
+</section>
+<!-- Telemetry Footnote Strip -->
+<div class="pt-2 border-t border-[#e7e7e7] flex flex-col space-y-1 font-mono text-[10px] text-neutral-400">
+<div class="flex items-center justify-between">
+<span>AUTH_SHA256: 8f4a...09c4</span>
+<span class="text-neutral-700 font-semibold">STATUS: 200_OK</span>
+</div>
+<div class="flex items-center justify-between">
+<span>DIGITAL_GARDEN_CORE_V1.12</span>
+<span>DELICIAE CORP © 2025</span>
+</div>
+</div>
+</main>
+<!-- STANDARD DELICIAE 4-TAB BOTTOM NAVIGATION -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-[#e7e7e7] pb-safe">
+<div class="max-w-xl mx-auto h-14 flex items-center justify-around px-2">
+<!-- Tab 1: Garden -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 text-neutral-400 hover:text-black transition" href="#">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+<span class="font-mono text-[9px] uppercase tracking-wider mt-0.5">Garden</span>
+</a>
+<!-- Tab 2: Library -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 text-neutral-400 hover:text-black transition" href="#">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<span class="font-mono text-[9px] uppercase tracking-wider mt-0.5">Library</span>
+</a>
+<!-- Tab 3: Editor -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 text-neutral-400 hover:text-black transition" href="#">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+<span class="font-mono text-[9px] uppercase tracking-wider mt-0.5">Editor</span>
+</a>
+<!-- Tab 4: Reader / Settings (Active) -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 text-black font-semibold transition relative" href="#">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+<span class="font-mono text-[9px] uppercase tracking-wider mt-0.5">Settings</span>
+<span class="absolute top-1 right-1/3 w-1.5 h-1.5 rounded-full bg-[#00FF66]"></span>
+</a>
+</div>
+</nav>
+<!-- Interactive script -->
+<script>
+    (function() {
+      // Bio counter
+      const bio = document.getElementById('bio-textarea');
+      const counter = document.getElementById('char-counter');
+      if (bio && counter) {
+        bio.addEventListener('input', function() {
+          counter.textContent = bio.value.length + ' / 240 chars';
+        });
+      }
+
+      // Save button feedback
+      const saveBtn = document.getElementById('save-profile-btn');
+      if (saveBtn) {
+        saveBtn.addEventListener('click', function() {
+          const original = saveBtn.innerHTML;
+          saveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check_circle</span> Saved to Replica (200 OK)';
+          saveBtn.classList.remove('bg-[#00FF66]');
+          saveBtn.classList.add('bg-emerald-400');
+          setTimeout(() => {
+            saveBtn.innerHTML = original;
+            saveBtn.classList.remove('bg-emerald-400');
+            saveBtn.classList.add('bg-[#00FF66]');
+          }, 2400);
+        });
+      }
+
+      // Delete confirmation
+      const deleteBtn = document.getElementById('delete-account-trigger');
+      if (deleteBtn) {
+        deleteBtn.addEventListener('click', function() {
+          const confirmed = confirm('CRITICAL WARNING: This deprovisions the single author identity permanently. Proceed to irreversible confirmation stage?');
+          if (confirmed) {
+            deleteBtn.innerText = 'VERIFYING CREDENTIALS...';
+            setTimeout(() => {
+              deleteBtn.innerText = 'PROCEED TO ARCHIVE LOCKDOWN (CONFIRM)';
+            }, 600);
+          }
+        });
+      }
+
+      // Sign out handler
+      const signoutBtn = document.getElementById('sign-out-btn');
+      if (signoutBtn) {
+        signoutBtn.addEventListener('click', function() {
+          signoutBtn.innerHTML = '<span class="material-symbols-outlined text-[16px]">hourglass_empty</span> Purging local JWT...';
+          setTimeout(() => {
+            alert('Session token evicted. Redirecting to protocol authentication.');
+          }, 500);
+        });
+      }
+    })();
+  </script>
+</body></html>

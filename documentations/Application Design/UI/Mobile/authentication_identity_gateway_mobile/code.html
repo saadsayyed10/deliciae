@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<meta content="mobile_blank" name="shell-type"/>
+<title>Deliciae — Identity &amp; Access Gateway</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#000000",
+            "slime-green": "#00FF66",
+            "surface-ground": "#F8F8F6",
+            "surface-card": "#FFFFFF",
+            "border-deliciae": "#E5E5E2",
+            "border-subtle": "#EEEEEC",
+            "text-main": "#141413",
+            "text-muted": "#6E6E6A",
+            "text-dim": "#989892",
+            "surface-dark": "#0F0F10"
+          },
+          fontFamily: {
+            serif: ["Newsreader", "serif"],
+            mono: ["JetBrains Mono", "monospace"],
+            sans: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        background-color: #F8F8F6;
+        color: #141413;
+        font-family: 'Inter', sans-serif;
+      }
+      body {
+        overscroll-behavior: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 12px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-surface-ground min-h-screen flex flex-col antialiased selection:bg-[#00FF66] selection:text-black">
+<!-- Top Navigation Header -->
+<header class="sticky top-0 z-30 bg-[#F8F8F6]/95 backdrop-blur-md border-b border-border-deliciae pt-safe">
+<div class="px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-[#00FF66] shadow-[0_0_8px_#00FF66] ring-1 ring-black/20"></span>
+<span class="font-mono text-xs font-semibold tracking-tight text-text-main">Deliciae <span class="text-text-muted font-normal">/ 0.9.4</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Search" class="w-8 h-8 rounded-full flex items-center justify-center text-text-muted hover:text-text-main transition-colors">
+<span class="material-symbols-outlined text-[19px]">search</span>
+</button>
+<button aria-label="Menu" class="w-8 h-8 rounded-full flex items-center justify-center text-text-muted hover:text-text-main transition-colors">
+<span class="material-symbols-outlined text-[19px]">menu</span>
+</button>
+<div class="w-6 h-6 rounded-full bg-neutral-900 text-[#00FF66] text-[10px] font-mono font-bold flex items-center justify-center border border-neutral-700 ml-1">
+          C
+        </div>
+</div>
+</div>
+<!-- Sub-header Breadcrumb Bar -->
+<div class="px-4 py-1.5 bg-[#F0EFEA] border-t border-border-subtle flex items-center justify-between text-[10px] font-mono text-text-muted">
+<div class="flex items-center gap-1.5 tracking-wider truncate">
+<span class="text-neutral-900 font-semibold">GATEWAY</span>
+<span class="text-neutral-400">/</span>
+<span>V1_AUTH</span>
+<span class="text-neutral-400">/</span>
+<span class="text-neutral-600">SESSION_INIT</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-white border border-border-deliciae text-neutral-800 font-medium shrink-0 ml-2 tracking-tight">
+        TTL: 7D [AUTHOR]
+      </span>
+</div>
+</header>
+<!-- Main Scrollable Content -->
+<main class="flex-1 w-full max-w-md mx-auto px-4 pt-5 pb-24 flex flex-col gap-5">
+<!-- Editorial Headline Section -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="font-mono text-[9px] uppercase tracking-widest px-2 py-0.5 bg-black text-[#00FF66] font-semibold rounded-sm">
+          SYS.LOCKED
+        </span>
+<span class="font-mono text-[10px] text-text-muted">0x7F4B..AUTH_GATE</span>
+</div>
+<h1 class="font-serif text-[32px] leading-[36px] tracking-[-0.015em] text-text-main font-normal">
+        Identity <span class="font-serif italic text-text-muted">// Access Gateway</span>
+</h1>
+<p class="font-serif italic text-[15px] leading-[22px] text-text-muted">
+        Cryptographic identity verification, Bcrypt hash validation, and persistent token authorization for the Deliciae digital sanctuary.
+      </p>
+</section>
+<!-- Refined Deliciae Persona Switcher -->
+<div class="bg-[#EEEEEC] p-1 rounded-md border border-border-deliciae flex gap-1 shadow-inner">
+<button class="flex-1 py-2 px-3 rounded bg-white text-black font-mono text-[11px] font-medium tracking-tight shadow-sm flex items-center justify-center gap-2 border border-black/5 transition-all" id="tab-author" onclick="selectPersona('author')" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-[#00FF66] ring-1 ring-black/10"></span>
+<span>Author Portal [1/1]</span>
+</button>
+<button class="flex-1 py-2 px-3 rounded text-text-muted font-mono text-[11px] font-medium tracking-tight hover:text-black flex items-center justify-center gap-2 transition-all" id="tab-viewer" onclick="selectPersona('viewer')" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-neutral-300"></span>
+<span>Viewer Portal [Pseudo]</span>
+</button>
+</div>
+<!-- Mode Selector & Invariant Box -->
+<div class="flex flex-col gap-2.5">
+<!-- Mode Toggle -->
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-1.5">
+<span class="font-mono text-xs text-neutral-400">&gt;</span>
+<span class="font-mono text-[10px] uppercase tracking-wider text-text-muted font-medium">Execution Mode</span>
+</div>
+<div class="flex bg-[#EAE9E4] p-0.5 rounded border border-border-deliciae">
+<button class="px-2.5 py-1 rounded bg-black text-[#00FF66] font-mono text-[10px] font-semibold transition-all" id="btn-mode-signin" onclick="setExecMode('signin')" type="button">
+            SIGN IN
+          </button>
+<button class="px-2.5 py-1 rounded text-text-muted hover:text-black font-mono text-[10px] font-medium transition-all" id="btn-mode-init" onclick="setExecMode('init')" type="button">
+            INITIALIZE
+          </button>
+</div>
+</div>
+<!-- Canonical Invariant Card -->
+<div class="bg-surface-card border border-border-deliciae rounded-md p-3.5 shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-text-main">verified</span>
+<span class="font-mono text-[10px] font-semibold uppercase tracking-wider text-text-main">Canonical Invariant</span>
+</div>
+<span class="font-mono text-[9px] bg-[#F3F2EE] px-1.5 py-0.5 rounded border border-border-deliciae text-neutral-700 font-medium">
+            SLOT: 1/1 VERIFIED
+          </span>
+</div>
+<p class="font-sans text-xs text-text-muted leading-relaxed">
+          Exactly one primary Author custodian exists in this instance. Verified custodian presence: <strong class="text-text-main font-medium">1/1 slot occupied</strong>.
+          <span class="inline-flex items-center gap-1 font-mono text-[10px] bg-neutral-100 text-neutral-800 px-1.5 py-0.5 rounded border border-border-subtle ml-1">
+<span class="w-1 h-1 rounded-full bg-[#00FF66]"></span> SYNC: ACTIVE
+          </span>
+</p>
+</div>
+</div>
+<!-- Credentials Authentication Form -->
+<form class="bg-surface-card border border-border-deliciae rounded-md p-4 shadow-sm flex flex-col gap-4" onsubmit="handleAuth(event)">
+<!-- Identifier Field -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-mono text-[10px] uppercase font-semibold text-text-main tracking-wider" for="author-identifier">
+            AUTHOR KEY / EMAIL
+          </label>
+<span class="font-mono text-[9px] text-text-dim">CUSTODIAN_STATION</span>
+</div>
+<div class="relative flex items-center">
+<input class="w-full bg-[#FAFAF9] border border-border-deliciae rounded text-text-main font-sans text-xs py-2.5 pl-3 pr-10 focus:outline-none focus:border-black focus:ring-1 focus:ring-black placeholder:text-neutral-400 transition-colors" id="author-identifier" placeholder="custodian@deliciae.garden" required="" type="email" value="custodian@deliciae.garden"/>
+<div class="absolute right-3 text-text-dim flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-[17px]">badge</span>
+</div>
+</div>
+</div>
+<!-- Passphrase Field -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-mono text-[10px] uppercase font-semibold text-text-main tracking-wider" for="author-phrase">
+            SECRET TOKEN PHRASE
+          </label>
+<span class="font-mono text-[9px] text-text-dim">BCRYPT_WORK: 12</span>
+</div>
+<div class="relative flex items-center">
+<input class="w-full bg-[#FAFAF9] border border-border-deliciae rounded text-text-main font-mono text-xs py-2.5 pl-3 pr-10 focus:outline-none focus:border-black focus:ring-1 focus:ring-black placeholder:text-neutral-400 transition-colors" id="author-phrase" placeholder="Enter deterministic master phrase" required="" type="password" value="deliciae-master-invariant-hash-9901"/>
+<button aria-label="Toggle password visibility" class="absolute right-2.5 p-1 text-text-dim hover:text-text-main transition-colors flex items-center" onclick="toggleSecretVisibility()" type="button">
+<span class="material-symbols-outlined text-[18px]" id="eye-icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Deliciae Signature Slime Green Action Button -->
+<button class="w-full mt-1.5 py-3 px-4 bg-[#00FF66] hover:bg-[#00e65c] active:bg-[#00cc52] text-black font-mono text-xs font-bold uppercase tracking-wider rounded border border-black/10 shadow-sm flex items-center justify-center gap-2 cursor-pointer transition-all active:scale-[0.99]" id="submit-auth-btn" type="submit">
+<span class="material-symbols-outlined text-[18px]">key</span>
+<span id="btn-text">AUTHENTICATE AUTHOR SESSION</span>
+</button>
+<!-- Recovery / Switch Actions -->
+<div class="flex flex-col items-center gap-2 pt-2 border-t border-border-subtle">
+<button class="font-mono text-[10px] text-text-muted hover:text-text-main transition-colors flex items-center gap-1.5 group" onclick="selectPersona('viewer')" type="button">
+<span class="text-[#00FF66] group-hover:translate-x-0.5 transition-transform font-bold">→</span>
+<span>Switch to Viewer pseudonym access</span>
+</button>
+<button class="font-mono text-[10px] text-neutral-400 hover:text-neutral-700 underline decoration-neutral-300 underline-offset-4 transition-colors" onclick="triggerRecoveryModal()" type="button">
+          Recover Custodian Token
+        </button>
+</div>
+</form>
+<!-- Telemetry Diagnostic Terminal Drawer -->
+<div class="bg-surface-dark border border-neutral-800 rounded-md p-3.5 text-neutral-200 shadow-md">
+<div class="flex items-center justify-between pb-2 border-b border-neutral-800 mb-2.5">
+<div class="flex items-center gap-2">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-[#00FF66] animate-pulse"></span>
+<span class="font-mono text-[10px] text-[#00FF66] font-semibold tracking-wider">ENDPOINT_LOG // TELEMETRY</span>
+</div>
+<span class="font-mono text-[9px] bg-neutral-800 text-[#00FF66] px-1.5 py-0.5 rounded border border-neutral-700">
+          STATUS: 200 OK
+        </span>
+</div>
+<div class="font-mono text-[10.5px] leading-5 text-neutral-300 flex flex-col gap-0.5">
+<div class="flex items-center gap-1.5">
+<span class="text-[#00FF66] font-bold">&gt;</span>
+<span class="text-white">POST /api/v1/author/signin</span>
+<span class="text-[#00FF66] ml-auto text-[9px]">[200 OK]</span>
+</div>
+<div class="flex items-center gap-1.5 text-neutral-400 text-[10px]">
+<span class="text-neutral-500">#</span>
+<span>TOKEN_STORAGE: Browser Secure State / Bearer JWT</span>
+</div>
+<div class="flex items-center gap-1.5 text-neutral-400 text-[10px]">
+<span class="text-neutral-500">#</span>
+<span>BCRYPT: HASH_SALT_ROUNDS_12 // VERIFIED_RIGOR</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2.5 mt-2 border-t border-neutral-800/80 text-neutral-500 font-mono text-[9px]">
+<span>ENV: PROD_CANONICAL</span>
+<span>CLUSTER: US-EAST-SUPABASE</span>
+</div>
+</div>
+</main>
+<!-- Deliciae Mobile 4-Tab Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#F8F8F6]/95 backdrop-blur-md border-t border-border-deliciae pb-safe">
+<div class="max-w-md mx-auto grid grid-cols-4 h-14">
+<!-- Garden -->
+<a class="flex flex-col items-center justify-center gap-0.5 text-text-muted hover:text-black transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">yard</span>
+<span class="font-mono text-[9px] font-medium tracking-tight">Garden</span>
+</a>
+<!-- Library -->
+<a class="flex flex-col items-center justify-center gap-0.5 text-text-muted hover:text-black transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">local_library</span>
+<span class="font-mono text-[9px] font-medium tracking-tight">Library</span>
+</a>
+<!-- Editor / Active for Auth Portal -->
+<a class="flex flex-col items-center justify-center gap-0.5 text-black relative" href="#">
+<span class="material-symbols-outlined text-[20px] text-black">edit_note</span>
+<span class="font-mono text-[9px] font-semibold tracking-tight text-black">Editor</span>
+<span class="absolute bottom-1 w-1 h-1 rounded-full bg-[#00FF66]"></span>
+</a>
+<!-- Reader -->
+<a class="flex flex-col items-center justify-center gap-0.5 text-text-muted hover:text-black transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">chrome_reader_mode</span>
+<span class="font-mono text-[9px] font-medium tracking-tight">Reader</span>
+</a>
+</div>
+</nav>
+<!-- Interactive Scripts -->
+<script>
+    let currentPersona = 'author';
+    let currentExecMode = 'signin';
+    let isPasswordMasked = true;
+
+    function selectPersona(persona) {
+      currentPersona = persona;
+      const authorTab = document.getElementById('tab-author');
+      const viewerTab = document.getElementById('tab-viewer');
+      const btnText = document.getElementById('btn-text');
+      const authorInput = document.getElementById('author-identifier');
+
+      if (persona === 'author') {
+        authorTab.className = "flex-1 py-2 px-3 rounded bg-white text-black font-mono text-[11px] font-medium tracking-tight shadow-sm flex items-center justify-center gap-2 border border-black/5 transition-all";
+        viewerTab.className = "flex-1 py-2 px-3 rounded text-text-muted font-mono text-[11px] font-medium tracking-tight hover:text-black flex items-center justify-center gap-2 transition-all";
+        btnText.textContent = "AUTHENTICATE AUTHOR SESSION";
+        authorInput.value = "custodian@deliciae.garden";
+      } else {
+        viewerTab.className = "flex-1 py-2 px-3 rounded bg-white text-black font-mono text-[11px] font-medium tracking-tight shadow-sm flex items-center justify-center gap-2 border border-black/5 transition-all";
+        authorTab.className = "flex-1 py-2 px-3 rounded text-text-muted font-mono text-[11px] font-medium tracking-tight hover:text-black flex items-center justify-center gap-2 transition-all";
+        btnText.textContent = "ENTER ANONYMOUS GUEST GARDEN";
+        authorInput.value = "wanderer_8492@pseudonym.deliciae";
+      }
+    }
+
+    function setExecMode(mode) {
+      currentExecMode = mode;
+      const signinBtn = document.getElementById('btn-mode-signin');
+      const initBtn = document.getElementById('btn-mode-init');
+
+      if (mode === 'signin') {
+        signinBtn.className = "px-2.5 py-1 rounded bg-black text-[#00FF66] font-mono text-[10px] font-semibold transition-all";
+        initBtn.className = "px-2.5 py-1 rounded text-text-muted hover:text-black font-mono text-[10px] font-medium transition-all";
+      } else {
+        initBtn.className = "px-2.5 py-1 rounded bg-black text-[#00FF66] font-mono text-[10px] font-semibold transition-all";
+        signinBtn.className = "px-2.5 py-1 rounded text-text-muted hover:text-black font-mono text-[10px] font-medium transition-all";
+      }
+    }
+
+    function toggleSecretVisibility() {
+      const phraseInput = document.getElementById('author-phrase');
+      const eyeIcon = document.getElementById('eye-icon');
+      isPasswordMasked = !isPasswordMasked;
+
+      if (isPasswordMasked) {
+        phraseInput.type = "password";
+        eyeIcon.textContent = "visibility";
+      } else {
+        phraseInput.type = "text";
+        eyeIcon.textContent = "visibility_off";
+      }
+    }
+
+    function handleAuth(event) {
+      event.preventDefault();
+      const btn = document.getElementById('submit-auth-btn');
+      const originalContent = btn.innerHTML;
+      btn.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>VERIFYING CRYPTO PROOF...</span>`;
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">verified</span><span>AUTHORIZED • WELCOME</span>`;
+        setTimeout(() => {
+          btn.innerHTML = originalContent;
+          btn.disabled = false;
+        }, 1600);
+      }, 850);
+    }
+
+    function triggerRecoveryModal() {
+      alert("CUSTODIAN RECOVERY PROTOCOL: Offline GPG keypair verification or cold backup mnemonic required. Dispatched challenge to custodian@deliciae.garden.");
+    }
+  </script>
+</body></html>

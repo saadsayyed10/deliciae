@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-container-lowest":"#ffffff","primary":"#000000","on-tertiary":"#ffffff","surface-dim":"#dadada","on-tertiary-fixed":"#002107","on-error-container":"#93000a","primary-fixed-dim":"#c8c6c5","surface-container":"#eeeeee","error":"#ba1a1a","outline":"#747878","surface-tint":"#5f5e5e","surface-variant":"#e2e2e2","on-tertiary-fixed-variant":"#00531b","secondary-fixed":"#e3e2e2","on-secondary":"#ffffff","on-surface":"#1a1c1c","surface-container-low":"#f3f3f4","tertiary-fixed":"#6bff83","on-primary-fixed-variant":"#474646","primary-fixed":"#e5e2e1","on-secondary-fixed-variant":"#464747","on-secondary-fixed":"#1b1c1c","on-background":"#1a1c1c","primary-container":"#1c1b1b","surface":"#f9f9f9","inverse-surface":"#2f3131","on-primary":"#ffffff","tertiary-container":"#002107","on-primary-container":"#858383","tertiary":"#000000","inverse-on-surface":"#f0f1f1","secondary-fixed-dim":"#c7c6c6","on-tertiary-container":"#00993a","surface-bright":"#f9f9f9","on-error":"#ffffff","on-secondary-container":"#646464","surface-container-highest":"#e2e2e2","on-primary-fixed":"#1c1b1b","surface-container-high":"#e8e8e8","inverse-primary":"#c8c6c5","outline-variant":"#c4c7c7","error-container":"#ffdad6","on-surface-variant":"#444748","tertiary-fixed-dim":"#00e55b","secondary-container":"#e3e2e2","background":"#f9f9f9","secondary":"#5e5e5e"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-md":"1rem","margin":"3rem","gutter-mobile":"1rem","space-xl":"2.5rem","gutter":"1.5rem","space-2xl":"4rem","space-xxs":"0.125rem","space-sm":"0.5rem","space-3xl":"6rem","space-lg":"1.5rem","space-xs":"0.25rem","margin-mobile":"1.25rem"},"fontFamily":{"headline-md":["Newsreader"],"label-mono-sm":["JetBrains Mono"],"code-body":["JetBrains Mono"],"body-md":["Inter"],"headline-lg":["Newsreader"],"body-editorial-lg":["Newsreader"],"headline-sm":["Newsreader"],"headline-lg-mobile":["Newsreader"],"body-sm":["Inter"],"body-lg":["Inter"],"display-hero":["Newsreader"],"display-hero-mobile":["Newsreader"],"label-mono-xs":["JetBrains Mono"]},"fontSize":{"headline-md":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"400"}],"label-mono-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}],"code-body":["13px",{"lineHeight":"22px","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"headline-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"400"}],"body-editorial-lg":["21px",{"lineHeight":"34px","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-sm":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"500"}],"headline-lg-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"display-hero":["72px",{"lineHeight":"80px","letterSpacing":"-0.03em","fontWeight":"400"}],"display-hero-mobile":["44px",{"lineHeight":"52px","letterSpacing":"-0.02em","fontWeight":"400"}],"label-mono-xs":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-tertiary-fixed selection:text-tertiary-container"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest border-b border-primary"><div class="h-14 max-w-[1440px] mx-auto px-gutter-mobile lg:px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm tracking-tight text-primary font-normal">Deliciae</span><span class="font-label-mono-xs text-label-mono-xs px-space-xs py-space-xxs bg-surface-container border border-primary text-on-surface">v0.9.4</span></div><div class="hidden md:flex items-center gap-space-xs pl-space-md border-l border-primary"><span class="w-2 h-2 rounded-none bg-tertiary-fixed-dim ring-1 ring-primary inline-block"></span><span class="font-label-mono-xs text-label-mono-xs text-on-surface tracking-wider uppercase">AUTH_GATEWAY // SECURE</span></div><div class="hidden xl:flex items-center gap-space-xs text-on-surface-variant font-label-mono-xs text-label-mono-xs pl-space-md border-l border-surface-variant"><span>sys:</span><span class="text-primary">identity</span><span>/</span><span>portal</span></div></div><div class="flex items-center gap-space-lg"><nav class="hidden lg:flex items-center gap-space-md font-label-mono-sm text-label-mono-sm uppercase tracking-wider" data-active-classes="text-primary underline decoration-2 decoration-tertiary-fixed-dim underline-offset-8"><a aria-current="page" class="transition-colors text-primary underline decoration-2 decoration-tertiary-fixed-dim underline-offset-8" data-path="overview" href="#">Overview</a><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="credentials" href="#">Credentials</a><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="active-sessions" href="#">Sessions</a><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="api-access" href="#">API Keys</a><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="audit-log" href="#">Audit Log</a></nav><div class="flex items-center gap-space-sm pl-space-md border-l border-primary"><div class="hidden sm:flex items-center gap-space-xs font-label-mono-xs text-label-mono-xs border border-primary px-space-sm py-space-xxs bg-surface-container-low"><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Lib</a><span class="text-outline-variant">/</span><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Edit</a><span class="text-outline-variant">/</span><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">View</a></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full max-w-[1440px] mx-auto px-gutter-mobile lg:px-gutter pt-14 flex-1 bg-surface-container-lowest"><div class="flex flex-col w-full">
+<!-- Top Context Header & Terminal Rail -->
+<section class="py-space-xl border-b border-primary">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="space-y-space-xs max-w-3xl">
+<div class="flex items-center gap-space-xs font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase tracking-wider">
+<span class="hover:text-primary transition-colors cursor-pointer">SYSTEM</span>
+<span>/</span>
+<span class="hover:text-primary transition-colors cursor-pointer">SETTINGS</span>
+<span>/</span>
+<span class="text-primary font-semibold">ACCOUNT_LIFECYCLE</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Identity &amp; Protocol Settings</h1>
+<p class="font-body-editorial-lg text-body-editorial-lg text-on-surface-variant italic">
+          Configure cryptographic identity profiles, synchronous editorial credentials, and garden author authority states.
+        </p>
+</div>
+<!-- Telemetry Badge Grid -->
+<div class="flex flex-wrap lg:flex-col items-start lg:items-end gap-space-xs font-label-mono-xs text-label-mono-xs">
+<div class="flex items-center gap-space-xs px-space-sm py-space-xxs bg-surface-container border border-primary">
+<span class="text-on-surface-variant">ROLE:</span>
+<span class="text-primary font-semibold">AUTHOR (CUSTODIAN)</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-space-xxs bg-surface-container-low border border-outline-variant">
+<span class="text-on-surface-variant">USER_ID:</span>
+<span class="text-primary font-mono tracking-tighter">#usr_84920fe1</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-space-xxs bg-primary text-on-primary">
+<span class="inline-block w-2 h-2 bg-tertiary-fixed rounded-none animate-pulse"></span>
+<span class="tracking-widest uppercase">TOKEN STATUS: ACTIVE (Bearer JWT)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Notification Bar -->
+<div class="border-b border-primary bg-surface-container-low px-space-md py-space-xs flex flex-wrap items-center justify-between gap-space-sm font-label-mono-xs text-label-mono-xs" id="sync-telemetry">
+<div class="flex items-center gap-space-sm text-on-surface">
+<span class="text-tertiary-fixed-dim">●</span>
+<span class="uppercase tracking-wider font-semibold">REPLICA SYNC:</span>
+<span class="font-code-body text-code-body text-on-surface-variant">Changes sync immediately via PUT /api/v1/author/account [200 OK]</span>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant">
+<span>LATENCY: 14ms</span>
+<span>|</span>
+<span>STORAGE: SUPABASE_S3_EUROPE</span>
+</div>
+</div>
+<!-- Main Split Architecture: 8 Columns Narrative Form / 4 Columns Metaspace -->
+<div class="grid grid-cols-1 lg:grid-cols-12 border-b border-primary">
+<!-- Left Column: Core Identity Profile (Sprint 1.7 & 1.9) -->
+<div class="lg:col-span-8 p-space-md lg:p-space-xl border-b lg:border-b-0 lg:border-r border-primary space-y-space-xl">
+<div>
+<div class="flex items-center justify-between border-b border-surface-variant pb-space-xs mb-space-lg">
+<span class="font-label-mono-xs text-label-mono-xs uppercase tracking-widest text-on-surface-variant">MODULE_01 // CORE_ATTRIBUTES</span>
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary-container bg-tertiary-fixed px-1.5 py-0.5 font-medium">SPRINT_1.7_1.9</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary">Garden Author Profile</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+          Public persona metadata attached to written artifacts, thought trees, and signed garden manifests.
+        </p>
+</div>
+<!-- Avatar & Storage Inspector Panel -->
+<div class="p-space-lg bg-surface-container-low border border-primary space-y-space-md">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-lg">
+<div class="relative group">
+<div class="w-24 h-24 bg-surface border-2 border-primary overflow-hidden relative shadow-[4px_4px_0px_#000000]">
+<img class="w-full h-full object-cover grayscale contrast-125" data-alt="Monochrome fine-art portrait photograph of Elena Vance, archivist and writer, stark editorial studio lighting with sharp contrasts and dark aesthetic composition." id="avatar-preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVLV8z5GobsNzWYUIV4W4uFrauQP6Cp8P-9JrKJaHcHCpL80TFddkze8SqsEr1fB9qpIlLgJ7OvNnSw9z_-niv98UjlFiqOXZpoSdcyIGXG3rN1EAgDYz5FWcfFW5TZDHhKVfB_2OHs-yumJtqtFtsSxspFD0ATs-X7aoyRFRTHD0Vwx_2wIefFAj-yBmqFrsbnsoTNL3cHe9hCYBz9RbUcL8E654cR0aut3-n6w"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity cursor-pointer" onclick="document.getElementById('avatar-url-input').focus()">
+<span class="material-symbols-outlined text-white text-[24px]">edit</span>
+</div>
+</div>
+<span class="absolute -top-1 -right-1 w-3 h-3 bg-tertiary-fixed border border-primary"></span>
+</div>
+<div class="space-y-space-xs flex-1">
+<div class="flex items-center gap-space-xs font-label-mono-xs text-label-mono-xs">
+<span class="px-space-xs py-space-xxs bg-primary text-on-primary">SUPABASE_STORE: READY</span>
+<span class="text-on-surface-variant font-mono">bucket://author-avatars/vance_84920.webp</span>
+</div>
+<div class="font-label-mono-sm text-label-mono-sm text-on-surface font-semibold">2048 x 2048 px · WEBP · 312 KB</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Cached globally on Cloudflare edge. Synchronized with public RSS author identity tags.
+            </p>
+<div class="pt-space-xs flex gap-space-sm">
+<button class="px-space-sm py-space-xxs text-xs font-label-mono-xs uppercase border border-primary bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-[2px_2px_0px_#000000]" onclick="triggerAvatarModal()" type="button">
+                Replace File...
+              </button>
+<button class="px-space-sm py-space-xxs text-xs font-label-mono-xs uppercase border border-outline-variant hover:border-primary text-on-surface-variant hover:text-primary transition-colors" onclick="resetAvatar()" type="button">
+                Purge Cache
+              </button>
+</div>
+</div>
+</div>
+<!-- Direct Image URL Injection -->
+<div class="pt-space-sm border-t border-surface-variant">
+<label class="block font-label-mono-xs text-label-mono-xs uppercase text-on-surface-variant mb-space-xxs" for="avatar-url-input">
+            Direct Avatar CDN Asset URL
+          </label>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-mono-xs text-label-mono-xs text-outline font-mono">src:</span>
+<input class="flex-1 bg-surface-container-lowest border border-outline-variant px-space-sm py-1 font-code-body text-code-body text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-tertiary-fixed transition-all" id="avatar-url-input" type="url" value="https://cdn.deliciae.garden/storage/v1/author_usr84920fe1.webp"/>
+<button class="px-space-sm py-1 bg-surface-container border border-primary text-primary font-label-mono-xs text-label-mono-xs uppercase hover:bg-primary hover:text-on-primary transition-colors" onclick="testAvatarUrl()" type="button">
+              Verify
+            </button>
+</div>
+</div>
+</div>
+<!-- Identity Form Inputs -->
+<form class="space-y-space-lg" id="profile-settings-form" onsubmit="event.preventDefault(); handleProfileSave();">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<div class="space-y-space-xxs">
+<label class="block font-label-mono-xs text-label-mono-xs uppercase tracking-wider text-primary font-semibold" for="first-name">
+              First Name <span class="text-tertiary-fixed-dim font-bold">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest border border-primary p-space-sm font-body-md text-body-md text-primary focus:outline-none focus:ring-2 focus:ring-tertiary-fixed-dim" id="first-name" required="" type="text" value="Elena"/>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">Author given nomenclature</span>
+</div>
+<div class="space-y-space-xxs">
+<label class="block font-label-mono-xs text-label-mono-xs uppercase tracking-wider text-primary font-semibold" for="last-name">
+              Last Name <span class="text-tertiary-fixed-dim font-bold">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest border border-primary p-space-sm font-body-md text-body-md text-primary focus:outline-none focus:ring-2 focus:ring-tertiary-fixed-dim" id="last-name" required="" type="text" value="Vance"/>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">Canonical family index identifier</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<div class="space-y-space-xxs">
+<label class="block font-label-mono-xs text-label-mono-xs uppercase tracking-wider text-primary font-semibold" for="author-email">
+              Verified Garden Email <span class="text-tertiary-fixed-dim font-bold">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest border border-primary p-space-sm font-code-body text-code-body text-primary focus:outline-none focus:ring-2 focus:ring-tertiary-fixed-dim" id="author-email" required="" type="email" value="elena@deliciae.garden"/>
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary-container font-medium flex items-center gap-1 mt-1">
+<span class="w-1.5 h-1.5 bg-tertiary-fixed inline-block"></span> Cryptographically verified (SPF/DKIM: pass)
+            </span>
+</div>
+<div class="space-y-space-xxs">
+<label class="block font-label-mono-xs text-label-mono-xs uppercase tracking-wider text-primary font-semibold" for="display-title">
+              Display Title &amp; Scholarly Role
+            </label>
+<input class="w-full bg-surface-container-lowest border border-primary p-space-sm font-headline-sm text-headline-sm text-primary focus:outline-none focus:ring-2 focus:ring-tertiary-fixed-dim" id="display-title" type="text" value="Archivist &amp; Essayist"/>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">Rendered beneath signature colophons</span>
+</div>
+</div>
+<div class="space-y-space-xxs">
+<label class="block font-label-mono-xs text-label-mono-xs uppercase tracking-wider text-primary font-semibold" for="author-bio">
+            Curatorial Intent / Bio Fragment
+          </label>
+<textarea class="w-full bg-surface-container-lowest border border-primary p-space-sm font-body-md text-body-md text-primary focus:outline-none focus:ring-2 focus:ring-tertiary-fixed-dim" id="author-bio" rows="3">Tracing speculative cybernetics, epistemic frameworks, and the preservation of non-linear prose in digital topologies.</textarea>
+<div class="flex justify-between items-center font-label-mono-xs text-label-mono-xs text-outline pt-1">
+<span>Markdown supported for essay sign-offs</span>
+<span id="char-count">112 / 240 chars</span>
+</div>
+</div>
+<!-- Submission Trigger Deck -->
+<div class="pt-space-md border-t border-primary flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<button class="px-space-xl py-space-sm bg-tertiary-fixed text-primary font-body-md text-body-md font-semibold border-2 border-primary tracking-wide hover:shadow-[3px_3px_0px_#000000] active:translate-x-0 active:translate-y-0 transition-all flex items-center gap-space-xs cursor-pointer" id="save-btn" type="submit">
+<span class="material-symbols-outlined text-[18px]">save</span>
+              Save Changes
+            </button>
+<button class="px-space-lg py-space-sm bg-surface-container-lowest text-primary font-body-md text-body-md border border-primary hover:bg-surface-container transition-colors cursor-pointer" onclick="revertProfile()" type="button">
+              Cancel / Revert
+            </button>
+</div>
+<div class="font-label-mono-xs text-label-mono-xs text-on-surface-variant flex items-center gap-1.5">
+<span class="w-2 h-2 border border-primary bg-white"></span>
+<span>Unsaved modifications: <strong class="text-primary font-mono" id="dirty-indicator">0</strong></span>
+</div>
+</div>
+</form>
+</div>
+<!-- Right Column: Secondary Rails & Telemetry Inspection -->
+<div class="lg:col-span-4 p-space-md lg:p-space-lg space-y-space-xl bg-surface-container-low/40">
+<!-- Module 02: Viewer Identity & Pseudonym Management (Sprint 1.8 & 1.10) -->
+<section class="space-y-space-md">
+<div class="flex items-center justify-between border-b border-surface-variant pb-space-xs">
+<span class="font-label-mono-xs text-label-mono-xs uppercase tracking-widest text-on-surface-variant">MODULE_02 // PSEUDONYM</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary font-semibold">SPRINT_1.8_1.10</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Linked Viewer Identity</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Dual-persona bridging: allows custodial author to browse, bookmark, and leave public remarks as a verified public reader.
+          </p>
+</div>
+<div class="p-space-md bg-surface-container-lowest border border-primary shadow-[2px_2px_0px_#000000] space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="font-headline-sm text-headline-sm text-primary">@elena_archivist</div>
+<span class="px-space-xs py-space-xxs bg-tertiary-fixed border border-primary font-label-mono-xs text-label-mono-xs font-semibold">VIEWER_ACTIVE</span>
+</div>
+<div class="space-y-1 font-label-mono-xs text-label-mono-xs">
+<div class="text-on-surface-variant flex items-center justify-between">
+<span>ENCRYPTED HASH (AES/Bcrypt):</span>
+<span class="font-mono text-primary font-bold">0x8f2d...b14c</span>
+</div>
+<div class="text-on-surface-variant flex items-center justify-between">
+<span>CREATED:</span>
+<span class="text-primary">October 14, 2025</span>
+</div>
+<div class="text-on-surface-variant flex items-center justify-between">
+<span>TOKEN LEASE:</span>
+<span class="text-tertiary-container font-semibold">Expires in 58 days</span>
+</div>
+</div>
+<div class="pt-space-xs border-t border-surface-variant flex gap-space-xs">
+<button class="flex-1 py-1.5 bg-surface-container text-primary font-label-mono-xs text-label-mono-xs border border-primary hover:bg-primary hover:text-on-primary transition-colors uppercase tracking-wider text-center" onclick="openRegenModal()" type="button">
+              Regenerate Alias
+            </button>
+<button class="px-space-sm py-1.5 border border-primary bg-surface-container-lowest hover:bg-surface-container" onclick="navigator.clipboard.writeText('0x8f2d49fa9821ce7839b14c')" title="Copy Pseudonym Token" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">content_copy</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Module 03: Session & Authentication Token State (Sprint 1.3 & 1.6) -->
+<section class="space-y-space-md pt-space-md border-t border-primary">
+<div class="flex items-center justify-between border-b border-surface-variant pb-space-xs">
+<span class="font-label-mono-xs text-label-mono-xs uppercase tracking-widest text-on-surface-variant">MODULE_03 // AUTH_PROTOCOL</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary font-semibold">SPRINT_1.3_1.6</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Persistent JWT Inspector</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Stateless authentication authority maintained in encrypted client session store.
+          </p>
+</div>
+<!-- Token String Box -->
+<div class="space-y-space-xs">
+<div class="flex justify-between items-center font-label-mono-xs text-label-mono-xs">
+<span class="text-on-surface-variant uppercase">Bearer Header Token</span>
+<span class="text-tertiary-container font-mono">HMAC-SHA256</span>
+</div>
+<div class="p-space-sm bg-surface-container-lowest border border-primary font-code-body text-code-body text-on-surface break-all select-all relative group">
+<code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJnYXJkZW5faWQiOiJkZWxpY2lhZV9tYWluIiwidXNyIjoiIzg0OTIwZmUxIiwicm9sZSI6ImF1dGhvciIsImlhdCI6MTczMDM4MDgwMCwiZXhwIjoxNzMwOTg1NjAwfQ...9a2f</code>
+<button class="absolute top-1 right-1 opacity-0 group-hover:opacity-100 bg-primary text-white text-[10px] font-label-mono-xs px-1.5 py-0.5 uppercase transition-opacity" onclick="navigator.clipboard.writeText('eyJhbGciOiJIUzI1Ni...9a2f')" type="button">
+              Copy
+            </button>
+</div>
+</div>
+<!-- 7-Day Token Lifetime Countdown -->
+<div class="space-y-space-xs bg-surface-container-lowest p-space-sm border border-outline-variant">
+<div class="flex justify-between items-center font-label-mono-xs text-label-mono-xs">
+<span class="font-semibold text-primary uppercase">Validity Window (7-Day TTL)</span>
+<span class="text-primary font-mono font-bold">5d 14h 22m remaining</span>
+</div>
+<!-- Hard brutalist bar -->
+<div class="w-full h-3 bg-surface-container border border-primary relative overflow-hidden">
+<div class="h-full bg-primary" style="width: 78.5%;"></div>
+</div>
+<div class="flex justify-between font-label-mono-xs text-label-mono-xs text-outline">
+<span>Issued: 2025-10-24 14:00</span>
+<span>Revoke: 2025-10-31 14:00</span>
+</div>
+</div>
+<!-- Sign Out Action -->
+<div class="space-y-space-xs pt-space-xs">
+<button class="w-full py-space-sm px-space-md border border-primary bg-surface-container-lowest hover:bg-surface-container text-primary font-label-mono-sm text-label-mono-sm uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-space-xs cursor-pointer shadow-[2px_2px_0px_#000000]" onclick="handleSignOut()" type="button">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+            Terminate Session (Sign Out)
+          </button>
+<p class="font-label-mono-xs text-label-mono-xs text-on-surface-variant text-center leading-normal">
+            Eliminates persistent token in frontend asynchronous state (<span class="font-mono text-primary font-medium">POST /api/v1/author/signout</span>)
+          </p>
+</div>
+</section>
+<!-- Quick Cryptographic Backlinks -->
+<div class="border-t border-primary pt-space-md space-y-space-xs font-label-mono-xs text-label-mono-xs">
+<div class="text-on-surface-variant uppercase font-semibold">SECURITY AUDIT SHORTCUTS</div>
+<div class="space-y-1">
+<a class="block hover:underline text-primary" href="#">├── Rotate Primary Master Keypair (Ed25519)</a>
+<a class="block hover:underline text-primary" href="#">├── Inspect OAuth 2.1 Authorized Scopes</a>
+<a class="block hover:underline text-primary" href="#">└── Export Encrypted Audit Ledger (.JSON)</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Danger Zone Architecture (Sprint 1.11 & 1.12) -->
+<section class="p-space-md lg:p-space-xl bg-surface-container-lowest">
+<div class="border-2 border-error p-space-lg lg:p-space-xl relative bg-error-container/10">
+<!-- Top Tag -->
+<div class="absolute -top-3 left-6 px-space-sm py-space-xxs bg-error text-on-error font-label-mono-xs text-label-mono-xs font-bold uppercase tracking-widest border border-error">
+        ZONE_PROTOCOL: CRITICAL // IRREVERSIBLE
+      </div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-xl">
+<div class="space-y-space-xs max-w-3xl">
+<div class="flex items-center gap-space-xs text-error font-label-mono-xs text-label-mono-xs font-bold uppercase">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+<span>Sprint 1.11 - 1.12 Deprovisioning Routine</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Permanently Delete Garden Author Account</h3>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            Warning: Deleting the single Author account (ID: <code class="font-code-body bg-surface-container px-1 py-0.5 text-error font-bold">#usr_84920fe1</code>) will lock the Deliciae digital garden into immutable archive mode. All associated private drafts will be purged, while published essays remain preserved as frozen read-only snapshots under public decentralized storage.
+          </p>
+<div class="font-label-mono-xs text-label-mono-xs text-outline font-mono pt-1">
+            REQUIRES MULTI-STEP VERIFICATION BEFORE ISSUING: <span class="text-error font-bold">DELETE /api/v1/author/account</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-stretch lg:items-center gap-space-sm shrink-0">
+<button class="px-space-xl py-space-md bg-error text-on-error font-label-mono-sm text-label-mono-sm uppercase tracking-wider font-bold border-2 border-error hover:bg-on-error hover:text-error transition-all shadow-[4px_4px_0px_#ba1a1a] cursor-pointer flex items-center justify-center gap-space-xs" onclick="openDeleteDialog()" type="button">
+<span class="material-symbols-outlined text-[18px]">delete_forever</span>
+            Permanently Delete Account
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Hard Brutalist Confirmation Modal: Account Deletion (Sprint 1.12) -->
+<div class="fixed inset-0 z-50 bg-primary/80 backdrop-blur-sm hidden items-center justify-center p-gutter-mobile" id="delete-modal">
+<div class="bg-surface-container-lowest border-2 border-error max-w-xl w-full p-space-xl shadow-[8px_8px_0px_#ba1a1a] space-y-space-lg">
+<div class="flex items-center justify-between border-b border-error pb-space-sm">
+<div class="flex items-center gap-space-xs text-error font-label-mono-xs text-label-mono-xs uppercase font-bold tracking-widest">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+<span>CRITICAL_AUTHORIZATION_REQUIRED</span>
+</div>
+<button class="text-on-surface hover:text-error" onclick="closeDeleteDialog()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-space-sm">
+<h4 class="font-headline-sm text-headline-sm text-primary">Confirm Irrevocable Account Purge</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          This operation will dissolve session tokens across all distributed edge instances. To confirm destruction of Author <strong class="text-primary font-mono">#usr_84920fe1</strong>, please type the phrase <span class="font-mono text-error font-bold select-all bg-error-container/30 px-1">DELETE ELENA VANCE</span> below:
+        </p>
+</div>
+<div class="space-y-space-xs">
+<input class="w-full bg-surface-container-low border border-primary p-space-sm font-code-body text-code-body uppercase text-error tracking-wider focus:outline-none focus:ring-2 focus:ring-error" id="delete-confirmation-input" oninput="validateDeleteString(this.value)" placeholder="DELETE ELENA VANCE" type="text"/>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-end gap-space-sm pt-space-sm border-t border-surface-variant">
+<button class="w-full sm:w-auto px-space-lg py-space-sm border border-primary font-label-mono-xs text-label-mono-xs uppercase text-primary hover:bg-surface-container" onclick="closeDeleteDialog()" type="button">
+          Abort
+        </button>
+<button class="w-full sm:w-auto px-space-xl py-space-sm bg-error text-on-error font-label-mono-xs text-label-mono-xs uppercase font-bold tracking-wider disabled:opacity-40 disabled:cursor-not-allowed border border-error cursor-pointer" disabled="" id="final-delete-btn" onclick="executeAccountPurge()" type="button">
+          Confirm &amp; Execute DELETE
+        </button>
+</div>
+</div>
+</div>
+<!-- Regenerate Pseudonym Modal (Sprint 1.8) -->
+<div class="fixed inset-0 z-50 bg-primary/70 backdrop-blur-sm hidden items-center justify-center p-gutter-mobile" id="regen-modal">
+<div class="bg-surface-container-lowest border-2 border-primary max-w-lg w-full p-space-lg shadow-[6px_6px_0px_#000000] space-y-space-md">
+<div class="flex items-center justify-between border-b border-primary pb-space-xs">
+<span class="font-label-mono-xs text-label-mono-xs uppercase tracking-widest text-primary font-semibold">VIEWER_ALIAS_REGENERATION</span>
+<button class="text-on-surface hover:text-primary" onclick="closeRegenModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Generate a fresh pseudonymous hash identity for leaving comments and signing decentralized guestbook entries.
+      </p>
+<div class="space-y-space-xs">
+<label class="block font-label-mono-xs text-label-mono-xs uppercase text-on-surface-variant" for="new-alias-input">New Viewer Handle</label>
+<div class="flex items-center border border-primary">
+<span class="px-3 bg-surface-container font-mono text-primary font-bold">@</span>
+<input class="w-full p-2 font-code-body text-code-body text-primary focus:outline-none" id="new-alias-input" type="text" value="elena_archivist_v2"/>
+</div>
+</div>
+<div class="pt-space-xs flex justify-end gap-space-sm">
+<button class="px-space-md py-space-xs border border-primary font-label-mono-xs text-label-mono-xs uppercase" onclick="closeRegenModal()" type="button">
+          Cancel
+        </button>
+<button class="px-space-lg py-space-xs bg-primary text-on-primary font-label-mono-xs text-label-mono-xs uppercase font-semibold hover:bg-tertiary-fixed hover:text-primary transition-colors" onclick="confirmRegenAlias()" type="button">
+          Commit Pseudonym
+        </button>
+</div>
+</div>
+</div>
+<!-- Interactive Logic Hook -->
+<script>
+    // Form Dirty Tracker
+    const form = document.getElementById('profile-settings-form');
+    const dirtyIndicator = document.getElementById('dirty-indicator');
+    const saveBtn = document.getElementById('save-btn');
+    const syncTelemetry = document.getElementById('sync-telemetry');
+    let dirtyCount = 0;
+
+    form.querySelectorAll('input, textarea').forEach(input => {
+      input.addEventListener('input', () => {
+        dirtyCount = 1;
+        dirtyIndicator.textContent = '1 (Modifications pending)';
+        dirtyIndicator.className = 'text-error font-mono font-bold';
+      });
+    });
+
+    function handleProfileSave() {
+      saveBtn.innerHTML = `<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span> Syncing...`;
+      saveBtn.disabled = true;
+
+      setTimeout(() => {
+        saveBtn.innerHTML = `<span class="material-symbols-outlined text-[18px]">check</span> Saved [200 OK]`;
+        saveBtn.className = "px-space-xl py-space-sm bg-tertiary-fixed text-primary font-body-md text-body-md font-semibold border-2 border-primary tracking-wide shadow-[3px_3px_0px_#000000]";
+        dirtyIndicator.textContent = '0 (Synchronized)';
+        dirtyIndicator.className = 'text-primary font-mono';
+        
+        // Flash telemetry bar green
+        syncTelemetry.classList.add('bg-tertiary-fixed/30');
+        setTimeout(() => {
+          syncTelemetry.classList.remove('bg-tertiary-fixed/30');
+          saveBtn.disabled = false;
+          saveBtn.innerHTML = `<span class="material-symbols-outlined text-[18px]">save</span> Save Changes`;
+        }, 2200);
+      }, 700);
+    }
+
+    function revertProfile() {
+      document.getElementById('first-name').value = 'Elena';
+      document.getElementById('last-name').value = 'Vance';
+      document.getElementById('author-email').value = 'elena@deliciae.garden';
+      document.getElementById('display-title').value = 'Archivist & Essayist';
+      document.getElementById('author-bio').value = 'Tracing speculative cybernetics, epistemic frameworks, and the preservation of non-linear prose in digital topologies.';
+      dirtyIndicator.textContent = '0';
+      dirtyIndicator.className = 'text-primary font-mono';
+    }
+
+    function testAvatarUrl() {
+      const input = document.getElementById('avatar-url-input');
+      if (input.value) {
+        alert('Verified asset connection with Cloudflare S3 edge: 200 OK');
+      }
+    }
+
+    function resetAvatar() {
+      alert('Avatar cache flushed across EU/US edge nodes.');
+    }
+
+    function triggerAvatarModal() {
+      document.getElementById('avatar-url-input').focus();
+    }
+
+    // Danger Zone Modal Handlers
+    function openDeleteDialog() {
+      const modal = document.getElementById('delete-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.getElementById('delete-confirmation-input').value = '';
+      document.getElementById('final-delete-btn').disabled = true;
+    }
+
+    function closeDeleteDialog() {
+      const modal = document.getElementById('delete-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function validateDeleteString(val) {
+      const btn = document.getElementById('final-delete-btn');
+      btn.disabled = val.trim() !== 'DELETE ELENA VANCE';
+    }
+
+    function executeAccountPurge() {
+      const btn = document.getElementById('final-delete-btn');
+      btn.innerHTML = `<span class="material-symbols-outlined animate-spin text-[16px]">progress_activity</span> PURGING...`;
+      btn.disabled = true;
+      setTimeout(() => {
+        alert('EXECUTION COMPLETE: DELETE /api/v1/author/account -> [204 No Content]. Garden switched to frozen state.');
+        closeDeleteDialog();
+      }, 1000);
+    }
+
+    // Pseudonym Modal Handlers
+    function openRegenModal() {
+      const modal = document.getElementById('regen-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeRegenModal() {
+      const modal = document.getElementById('regen-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function confirmRegenAlias() {
+      closeRegenModal();
+      alert('Updated cryptographic alias: PUT /api/v1/viewer/alias [200 OK]');
+    }
+
+    function handleSignOut() {
+      if (confirm('Terminate authenticated session and invalidate JWT across this device?')) {
+        alert('POST /api/v1/author/signout -> Token deleted. Session concluded.');
+      }
+    }
+  </script>
+</div></main><footer class="w-full border-t border-primary bg-surface-container-lowest mt-space-2xl"><div class="max-w-[1440px] mx-auto px-gutter-mobile lg:px-gutter py-space-md flex flex-col md:flex-row items-start md:items-center justify-between gap-space-sm font-label-mono-xs text-label-mono-xs text-on-surface-variant"><div class="flex flex-wrap items-center gap-space-md"><span class="text-primary font-medium">AUTH_SHA256: 8f4a13d902bca7e...09c4</span><span class="hidden sm:inline text-outline-variant">|</span><span>NODE_REGION: eu-west-1.prd</span><span class="hidden sm:inline text-outline-variant">|</span><span>STATUS: 200_OK</span></div><div class="flex items-center gap-space-md"><span class="text-on-surface">SYSTEM CLOCK: UTC+00:00</span><span class="text-outline-variant">//</span><span>DELICIAE CORP © 2025</span></div></div></footer></body></html>

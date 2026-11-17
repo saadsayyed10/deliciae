@@ -100,3 +100,30 @@ export const signInAuthor = async (email: string, password: string) => {
   // Return token and user data
   return { token, user };
 };
+
+// Service to fetch account of Author
+export const fetchAuthorProfile = async (userId: string) => {
+  // Fetch author account using the ID from the authenticated token
+  const author = await prisma.author.findUnique({
+    where: {
+      id: userId,
+    },
+  });
+  if (!author) {
+    throw new Error("Unauthorized: User ID was not found in the token");
+  }
+
+  // Encapsulate author data excluding password
+  const user = {
+    id: author.id,
+    firstName: author.firstName,
+    lastName: author.lastName,
+    email: author.email,
+    userType: author.userType,
+    profilePictureUrl: author.profilePictureUrl,
+    createdAt: author.createdAt,
+  };
+
+  // Return the author profile data
+  return user;
+};

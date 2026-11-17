@@ -15,7 +15,7 @@ model author {
   email             String   @unique
   password          String
   userType          UserType
-  createdAt         DateTime
+  createdAt         DateTime @default(now())
 }
 
 model viewer {
@@ -25,7 +25,7 @@ model viewer {
   profilePictureUrl String?
   username          String   @unique
   userType          UserType
-  createdAt         DateTime
+  createdAt         DateTime @default(now())
 }
 
 enum UserType {

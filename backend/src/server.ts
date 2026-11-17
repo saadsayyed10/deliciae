@@ -18,7 +18,7 @@ const startServer = async () => {
     await connectDB(); // Check database connection before starting the server
     app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`)); // Spin the server application
   } catch (error: any) {
-    console.error(`Failed to start server: ${error.message}`);
+    console.error(`Failed to start server: ${error.message}`); // Throw error if server spinning fails
   }
 };
 

@@ -1,18 +1,24 @@
+/* backend\src\server.ts */
+
+// Import classes, instances and libraries
 import express from "express";
 import { env } from "./config/env.config";
+import { connectDB } from "./config/db.config";
 
-const app = express();
-const PORT = env.PORT;
+const app = express(); // Initialize express instance
+const PORT = env.PORT; // Server port
 
+// Custom handler to start server asynchronously
 const startServer = async () => {
   if (!PORT) {
-    console.error("Please run the application on an open port");
+    console.error("Please run the application on an open port"); // Throw error if there is no port assigned
   }
 
   try {
-    app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`));
+    await connectDB(); // Check database connection before starting the server
+    app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`)); // Spin the server application
   } catch (error: any) {
-    console.log(`Failed to start server: ${error.message}`);
+    console.error(`Failed to start server: ${error.message}`);
   }
 };
 

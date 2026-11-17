@@ -10,6 +10,6 @@ export const connectDB = async () => {
     await prisma.$connect();
     console.log("Connected to PostgreSQL DB"); // Log this message when connection is healthy
   } catch (error: any) {
-    console.log(`Failed to connect PostgreSQL DB: ${error.message}`); // Log this message when connection is unhealthy
+    console.error(`Failed to connect PostgreSQL DB: ${error.message}`); // Log this message when connection is unhealthy
   }
 };

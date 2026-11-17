@@ -5,6 +5,7 @@ import express from "express";
 import cors from "cors";
 import { env } from "./config/env.config";
 import { connectDB } from "./config/db.config";
+import mainRouterV1 from "./middlewares/route.middleware";
 
 const app = express(); // Initialize express instance
 const PORT = env.PORT; // Server port
@@ -12,6 +13,7 @@ const PORT = env.PORT; // Server port
 // Middlewares
 app.use(express.json());
 app.use(cors());
+app.use("/api/v1", mainRouterV1); // Version 1
 
 // Custom handler to start server asynchronously
 const startServer = async () => {

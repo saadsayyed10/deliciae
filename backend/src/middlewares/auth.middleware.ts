@@ -6,9 +6,14 @@ import { Request, Response, NextFunction } from "express";
 import { env } from "../config/env.config";
 import prisma from "../lib/prisma.orm";
 
-// Type to decode user ID using JWTPayload class
-interface DecodeTokenType extends JwtPayload {
-  userId: string;
+// Type to decode author user ID using JWTPayload class
+interface DecodeAuthorTokenType extends JwtPayload {
+  authorId: string;
+}
+
+// Type to decode author user ID using JWTPayload class
+interface DecodeViewerTokenType extends JwtPayload {
+  viewerId: string;
 }
 
 // Author authentication middleware handler
@@ -30,11 +35,11 @@ export const protectAuthorAuth = async (
     const decoded = jwt.verify(
       token,
       env.JWT_SECRET_AUTHOR!,
-    ) as DecodeTokenType;
+    ) as DecodeAuthorTokenType;
 
-    const user = await prisma.author.findUnique({
+    const author = await prisma.author.findUnique({
       where: {
-        id: decoded.userId,
+        id: decoded.authorId,
       },
     });
 
@@ -46,11 +51,11 @@ export const protectAuthorAuth = async (
     }
 
     // Throw error if user is not tagged with token
-    if (!user) {
-      return res.status(401).json({ error: "Unauthorized: user not found" });
+    if (!author) {
+      return res.status(401).json({ error: "Unauthorized: Author not found" });
     }
 
-    (req as any).user = user;
+    (req as any).author = author;
 
     next();
   } catch (error: any) {
@@ -78,11 +83,11 @@ export const protectViewerAuth = async (
     const decoded = jwt.verify(
       token,
       env.JWT_SECRET_VIEWER!,
-    ) as DecodeTokenType;
+    ) as DecodeViewerTokenType;
 
-    const user = await prisma.viewer.findUnique({
+    const viewer = await prisma.viewer.findUnique({
       where: {
-        id: decoded.userId,
+        id: decoded.viewerId,
       },
     });
 
@@ -94,11 +99,11 @@ export const protectViewerAuth = async (
     }
 
     // Throw error if user is not tagged with token
-    if (!user) {
-      return res.status(401).json({ error: "Unauthorized: user not found" });
+    if (!viewer) {
+      return res.status(401).json({ error: "Unauthorized: Viewer not found" });
     }
 
-    (req as any).user = user;
+    (req as any).viewer = viewer;
 
     next();
   } catch (error: any) {

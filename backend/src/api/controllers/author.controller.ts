@@ -10,7 +10,7 @@ import * as authorServices from "../services/author.service";
 Controller: To sign up only one unique Author user account using email-password authentication with bcrypt hashing and JWT validation for authorization.
 
 Endpoint: /api/v1/author/signup
-Method:POST 
+Method: POST 
 Authentication: False
 */
 export const signUpAuthorController = async (req: Request, res: Response) => {
@@ -65,7 +65,7 @@ export const signUpAuthorController = async (req: Request, res: Response) => {
 Controller: To login Author user account using email-password authentication using JWT where token automatically expires in a week.
 
 Endpoint: /api/v1/author/signin
-Method:POST 
+Method: POST 
 Authentication: False
 */
 export const signInAuthorController = async (req: Request, res: Response) => {
@@ -97,6 +97,32 @@ export const signInAuthorController = async (req: Request, res: Response) => {
       message: "You have logged in to Deliciae...",
       token,
       user,
+    });
+  } catch (error: any) {
+    console.log(error.message);
+    return res.status(500).json({ status: false, error: error.message });
+  }
+};
+
+/*
+Controller: Fetch Author user profile in the settings menu for readability.
+
+Endpoint: /api/v1/author/account
+Method: GET
+Authentication: True
+*/
+export const fetchAuthorProfileController = async (
+  req: Request,
+  res: Response,
+) => {
+  const userId = (req as any).userId!;
+
+  try {
+    const author = await authorServices.fetchAuthorProfile(userId);
+
+    res.status(200).json({
+      status: true,
+      author,
     });
   } catch (error: any) {
     console.log(error.message);

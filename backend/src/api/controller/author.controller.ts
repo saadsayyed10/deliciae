@@ -1,0 +1,62 @@
+/* backend\src\api\controller\author.controller.ts */
+
+// Import request and response objects to manage the HTTP communication cycle
+import { Request, Response } from "express";
+
+// Import all services as an instance
+import * as authorServices from "../services/author.service";
+
+/*
+Controller: To sign up only one unique Author user account using email-password authentication with bcrypt hashing and JWT validation for authorization.
+
+Endpoint: /api/v1/author/signup
+Method:POST 
+Authentication: False
+*/
+export const signUpAuthorController = async (req: Request, res: Response) => {
+  const { firstName, lastName, email, password, profilePictureUrl } = req.body;
+
+  // Validate first and last name of the author
+  if (!firstName || lastName) {
+    console.log("Please appropriately enter your first and last name");
+    return res.status(400).json({
+      status: false,
+      error: "Please appropriately enter your first and last name",
+    });
+  }
+
+  // Validate email address of the author
+  if (!email || !email.includes("@")) {
+    console.log("Please enter a valid email address");
+    return res.status(400).json({
+      status: false,
+      error: "Please enter a valid email address",
+    });
+  }
+
+  // Validate author password
+  if (!password || password.length <= 8) {
+    console.log("Please enter a valid password with more than 8 characters");
+    return res.status(400).json({
+      status: false,
+      error: "Please enter a valid password with more than 8 characters",
+    });
+  }
+
+  try {
+    const { token, user } = await authorServices.signUpAuthor(
+      firstName,
+      lastName,
+      email,
+      password,
+      profilePictureUrl,
+    );
+
+    res
+      .status(201)
+      .json({ status: true, message: "Welcome to Deliciae...", token, user });
+  } catch (error: any) {
+    console.log(error.message);
+    return res.status(500).json({ status: false, error: error.message });
+  }
+};

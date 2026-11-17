@@ -44,7 +44,7 @@ export const signUpAuthor = async (
   // Generate token for authentication
   const token = generateAuthorToken(author.id);
 
-  // Pack encapsulate to return to the frontend
+  // Encapsulate user data excluding ID and password
   const user = {
     firstName: author.firstName,
     lastName: author.lastName,

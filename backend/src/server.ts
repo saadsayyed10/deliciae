@@ -2,11 +2,16 @@
 
 // Import classes, instances and libraries
 import express from "express";
+import cors from "cors";
 import { env } from "./config/env.config";
 import { connectDB } from "./config/db.config";
 
 const app = express(); // Initialize express instance
 const PORT = env.PORT; // Server port
+
+// Middlewares
+app.use(express.json());
+app.use(cors());
 
 // Custom handler to start server asynchronously
 const startServer = async () => {

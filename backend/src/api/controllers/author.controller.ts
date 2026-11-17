@@ -115,7 +115,7 @@ export const fetchAuthorProfileController = async (
   req: Request,
   res: Response,
 ) => {
-  const userId = (req as any).userId!;
+  const userId = (req as any).authorId!;
 
   try {
     const author = await authorServices.fetchAuthorProfile(userId);

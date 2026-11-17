@@ -52,3 +52,5 @@ export const signUpViewer = async (
   // Return token and user data
   return { token, user };
 };
+
+// TODO: Implement Login Viewer Account service after implementing cryptography handler in the frontend

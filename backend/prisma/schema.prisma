@@ -6,3 +6,29 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model author {
+  id                String   @id @default(uuid())
+  firstName         String
+  lastName          String
+  profilePictureUrl String?
+  email             String   @unique
+  password          String
+  userType          UserType
+  createdAt         DateTime
+}
+
+model viewer {
+  id                String   @id @default(uuid())
+  firstName         String
+  lastName          String
+  profilePictureUrl String?
+  username          String   @unique
+  userType          UserType
+  createdAt         DateTime
+}
+
+enum UserType {
+  AUTHOR
+  VIEWER
+}

@@ -9,5 +9,6 @@ const authorRouter = Router();
 
 // APIs with POST method
 authorRouter.post("/signup", controllers.signUpAuthorController);
+authorRouter.post("/signin", controllers.signInAuthorController);
 
 export default authorRouter;

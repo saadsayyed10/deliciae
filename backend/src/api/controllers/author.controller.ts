@@ -60,3 +60,46 @@ export const signUpAuthorController = async (req: Request, res: Response) => {
     return res.status(500).json({ status: false, error: error.message });
   }
 };
+
+/*
+Controller: To login Author user account using email-password authentication using JWT where token automatically expires in a week.
+
+Endpoint: /api/v1/author/signin
+Method:POST 
+Authentication: False
+*/
+export const signInAuthorController = async (req: Request, res: Response) => {
+  const { email, password } = req.body;
+
+  // Validate email address of the author
+  if (!email || !email.includes("@")) {
+    console.log("Please enter a valid email address");
+    return res.status(400).json({
+      status: false,
+      error: "Please enter a valid email address",
+    });
+  }
+
+  // Validate author password
+  if (!password || password.length <= 8) {
+    console.log("Please enter a valid password with more than 8 characters");
+    return res.status(400).json({
+      status: false,
+      error: "Please enter a valid password with more than 8 characters",
+    });
+  }
+
+  try {
+    const { token, user } = await authorServices.signInAuthor(email, password);
+
+    res.status(200).json({
+      status: true,
+      message: "You have logged in to Deliciae...",
+      token,
+      user,
+    });
+  } catch (error: any) {
+    console.log(error.message);
+    return res.status(500).json({ status: false, error: error.message });
+  }
+};

@@ -10,7 +10,7 @@ import { generateViewerToken } from "../../lib/token";
 import { UserType } from "@prisma/client";
 
 // Service to register viewer account
-export const signUpAuthor = async (
+export const signUpViewer = async (
   firstName: string,
   lastName: string,
   username: string,

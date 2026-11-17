@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 export const env = {
   PORT: process.env.PORT || 8080,
   JWT_SECRET_AUTHOR: process.env.JWT_SECRET_AUTHOR! || "sameoldtreva",

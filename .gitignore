@@ -1,5 +1,5 @@
 # Server files and folders
 backend/node_modules/
 backend/dist/
-
+backend/src/generated/prisma/
 backend/.env

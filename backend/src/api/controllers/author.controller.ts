@@ -17,7 +17,7 @@ export const signUpAuthorController = async (req: Request, res: Response) => {
   const { firstName, lastName, email, password, profilePictureUrl } = req.body;
 
   // Validate first and last name of the author
-  if (!firstName || lastName) {
+  if (!firstName || !lastName) {
     console.log("Please appropriately enter your first and last name");
     return res.status(400).json({
       status: false,

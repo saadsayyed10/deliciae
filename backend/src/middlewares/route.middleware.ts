@@ -7,6 +7,6 @@ import authorRouter from "../api/routes/author.route";
 // Main router middleware handler for 1st version
 const mainRouterV1 = Router();
 
-authorRouter.use("/author", authorRouter);
+mainRouterV1.use("/author", authorRouter);
 
 export default mainRouterV1;

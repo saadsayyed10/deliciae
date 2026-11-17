@@ -20,9 +20,17 @@ export const signUpAuthor = async (
   password: string,
   profilePictureUrl?: string,
 ) => {
+  // Account with same email mustn't exist
+  const existingAuthor = await prisma.author.findUnique({
+    where: {
+      email,
+    },
+  });
+  if (existingAuthor) throw new Error("Account with this email already exists");
+
   // Get the count of the author account
   const count = await prisma.author.findMany();
-  if (count.length > 1) {
+  if (count.length == 1) {
     throw new Error("Only one author is valid to use this application"); // Only 1 exact field is valid
   }
 
@@ -44,8 +52,43 @@ export const signUpAuthor = async (
   // Generate token for authentication
   const token = generateAuthorToken(author.id);
 
-  // Encapsulate user data excluding ID and password
+  // Encapsulate user data excluding password
   const user = {
+    id: author.id,
+    firstName: author.firstName,
+    lastName: author.lastName,
+    email: author.email,
+    userType: author.userType,
+    profilePictureUrl: author.profilePictureUrl,
+    createdAt: author.createdAt,
+  };
+
+  // Return token and user data
+  return { token, user };
+};
+
+// Service to login into author account
+export const signInAuthor = async (email: string, password: string) => {
+  // Account with same email must exist
+  const author = await prisma.author.findUnique({
+    where: {
+      email,
+    },
+  });
+  if (!author) throw new Error("Account with this email does not exists");
+
+  // Verify author password with the hashed password
+  const verifyPassword = await bcrypt.compare(password, author.password);
+  if (!verifyPassword) {
+    throw new Error("Password is incorrect");
+  }
+
+  // Generate token for authentication
+  const token = generateAuthorToken(author.id);
+
+  // Encapsulate user data excluding password
+  const user = {
+    id: author.id,
     firstName: author.firstName,
     lastName: author.lastName,
     email: author.email,

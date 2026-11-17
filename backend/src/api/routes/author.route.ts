@@ -11,4 +11,7 @@ const authorRouter = Router();
 authorRouter.post("/signup", controllers.signUpAuthorController);
 authorRouter.post("/signin", controllers.signInAuthorController);
 
+// APIs with GET method
+authorRouter.get("/account", controllers.fetchAuthorProfileController);
+
 export default authorRouter;

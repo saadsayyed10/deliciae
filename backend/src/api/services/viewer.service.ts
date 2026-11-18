@@ -90,7 +90,7 @@ export const updateViewerProfile = async (
   userId: string,
 ) => {
   // Fetch viewer account using the ID from the authenticated token
-  const viewerId = await prisma.author.findUnique({
+  const viewerId = await prisma.viewer.findUnique({
     where: {
       id: userId,
     },

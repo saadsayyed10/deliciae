@@ -124,3 +124,36 @@ export const updateViewerProfileController = async (
     return res.status(500).json({ status: false, error: error.message });
   }
 };
+
+/*
+Controller: To delete the Viewer account permanently.
+
+Endpoint: /api/v1/viewer/account
+Method: DELETE
+Authentication: True
+*/
+export const deleteViewerProfileController = async (
+  req: Request,
+  res: Response,
+) => {
+  try {
+    const userId = (req as any).viewer.id;
+    if (!userId) {
+      console.log("Unauthorized: Viewer must be logged in to delete profile");
+      return res.status(401).json({
+        status: false,
+        error: "Unauthorized: Viewer must be logged in to delete profile",
+      });
+    }
+
+    await viewerServices.deleteViewerProfile(userId!);
+
+    res.status(200).json({
+      status: true,
+      message: "Deleted viewer account successfully",
+    });
+  } catch (error: any) {
+    console.log(error.message);
+    return res.status(500).json({ status: false, error: error.message });
+  }
+};

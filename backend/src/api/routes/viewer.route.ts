@@ -25,4 +25,11 @@ viewerRouter.put(
   controllers.updateViewerProfileController,
 );
 
+// APIs with DELETE method
+viewerRouter.delete(
+  "/account",
+  protectViewerAuth,
+  controllers.deleteViewerProfileController,
+);
+
 export default viewerRouter;

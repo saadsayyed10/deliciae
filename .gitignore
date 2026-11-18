@@ -3,3 +3,6 @@ backend/node_modules/
 backend/dist/
 backend/src/generated/prisma/
 backend/.env
+
+# Opencode configuration file
+opencode.json

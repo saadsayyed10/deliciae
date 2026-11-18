@@ -28,4 +28,11 @@ authorRouter.put(
   controllers.updateAuthorProfileController,
 );
 
+// APIs with DELETE method
+authorRouter.delete(
+  "/account",
+  protectAuthorAuth,
+  controllers.deleteAuthorProfileController,
+);
+
 export default authorRouter;

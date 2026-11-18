@@ -125,3 +125,23 @@ export const updateViewerProfile = async (
   // Return the viewer profile data
   return user;
 };
+
+// Service to delete account of Viewer
+export const deleteViewerProfile = async (userId: string) => {
+  // Fetch viewer account using the ID from the authenticated token
+  const viewer = await prisma.viewer.findUnique({
+    where: {
+      id: userId,
+    },
+  });
+  if (!viewer) {
+    throw new Error("Unauthorized: User ID was not found in the token");
+  }
+
+  // Delete user account permanently
+  await prisma.viewer.delete({
+    where: {
+      id: userId,
+    },
+  });
+};

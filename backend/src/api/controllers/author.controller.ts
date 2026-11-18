@@ -177,3 +177,36 @@ export const updateAuthorProfileController = async (
     return res.status(500).json({ status: false, error: error.message });
   }
 };
+
+/*
+Controller: To delete the Author account permanently.
+
+Endpoint: /api/v1/author/account
+Method: DELETE
+Authentication: True
+*/
+export const deleteAuthorProfileController = async (
+  req: Request,
+  res: Response,
+) => {
+  try {
+    const userId = (req as any).author.id;
+    if (!userId) {
+      console.log("Unauthorized: Author must be logged in to delete profile");
+      return res.status(401).json({
+        status: false,
+        error: "Unauthorized: Author must be logged in to delete profile",
+      });
+    }
+
+    await authorServices.deleteAuthorProfile(userId!);
+
+    res.status(200).json({
+      status: true,
+      message: "Deleted author account successfully",
+    });
+  } catch (error: any) {
+    console.log(error.message);
+    return res.status(500).json({ status: false, error: error.message });
+  }
+};

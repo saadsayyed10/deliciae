@@ -171,3 +171,23 @@ export const updateAuthorProfile = async (
   // Return the author profile data
   return user;
 };
+
+// Service to delete account of Author
+export const deleteAuthorProfile = async (userId: string) => {
+  // Fetch author account using the ID from the authenticated token
+  const author = await prisma.author.findUnique({
+    where: {
+      id: userId,
+    },
+  });
+  if (!author) {
+    throw new Error("Unauthorized: User ID was not found in the token");
+  }
+
+  // Delete user account permenently
+  await prisma.author.delete({
+    where: {
+      id: userId,
+    },
+  });
+};

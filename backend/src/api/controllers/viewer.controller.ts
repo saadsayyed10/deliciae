@@ -63,7 +63,7 @@ export const fetchViewerProfileController = async (
   res: Response,
 ) => {
   try {
-    const userId = (req as any).author.id;
+    const userId = (req as any).viewer.id;
     if (!userId) {
       console.log("Unauthorized: Viewer must be logged in to fetch profile");
       return res.status(401).json({

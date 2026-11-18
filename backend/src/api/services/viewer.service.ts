@@ -53,7 +53,7 @@ export const signUpViewer = async (
   return { token, user };
 };
 
-// TODO: Implement Login Viewer Account service after implementing cryptography handler in the frontend
+/* TODO: Implement Login Viewer Account service after implementing cryptography handler in the frontend */
 
 // Service to fetch account of Viewer
 export const fetchViewerProfile = async (userId: string) => {
@@ -79,5 +79,49 @@ export const fetchViewerProfile = async (userId: string) => {
   };
 
   // Return the author profile data
+  return user;
+};
+
+// Service to update basic details of Viewer account
+export const updateViewerProfile = async (
+  firstName: string,
+  lastName: string,
+  profilePictureUrl: string,
+  userId: string,
+) => {
+  // Fetch viewer account using the ID from the authenticated token
+  const viewerId = await prisma.author.findUnique({
+    where: {
+      id: userId,
+    },
+  });
+  if (!viewerId) {
+    throw new Error("Unauthorized: User ID was not found in the token");
+  }
+
+  // Update the viewer account
+  const viewer = await prisma.viewer.update({
+    where: {
+      id: userId,
+    },
+    data: {
+      firstName,
+      lastName,
+      profilePictureUrl,
+    },
+  });
+
+  // Encapsulate author data excluding password
+  const user = {
+    id: viewer.id,
+    firstName: viewer.firstName,
+    lastName: viewer.lastName,
+    username: viewer.username,
+    userType: viewer.userType,
+    profilePictureUrl: viewer.profilePictureUrl,
+    createdAt: viewer.createdAt,
+  };
+
+  // Return the viewer profile data
   return user;
 };

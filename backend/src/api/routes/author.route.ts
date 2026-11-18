@@ -21,4 +21,11 @@ authorRouter.get(
   controllers.fetchAuthorProfileController,
 );
 
+// APIs with PUT method
+authorRouter.put(
+  "/account",
+  protectAuthorAuth,
+  controllers.updateAuthorProfileController,
+);
+
 export default authorRouter;

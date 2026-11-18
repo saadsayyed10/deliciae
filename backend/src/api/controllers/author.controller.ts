@@ -136,3 +136,44 @@ export const fetchAuthorProfileController = async (
     return res.status(500).json({ status: false, error: error.message });
   }
 };
+
+/*
+Controller: To update basic details like name and profile picture for the Author account.
+
+Endpoint: /api/v1/author/account
+Method: PUT
+Authentication: True
+*/
+export const updateAuthorProfileController = async (
+  req: Request,
+  res: Response,
+) => {
+  const { firstName, lastName, profilePictureUrl } = req.body;
+
+  try {
+    const userId = (req as any).author.id;
+    if (!userId) {
+      console.log("Unauthorized: Author must be logged in to fetch profile");
+      return res.status(401).json({
+        status: false,
+        error: "Unauthorized: Author must be logged in to fetch profile",
+      });
+    }
+
+    const author = await authorServices.updateAuthorProfile(
+      firstName,
+      lastName,
+      profilePictureUrl,
+      userId!,
+    );
+
+    res.status(200).json({
+      status: true,
+      message: "Updated author account",
+      author,
+    });
+  } catch (error: any) {
+    console.log(error.message);
+    return res.status(500).json({ status: false, error: error.message });
+  }
+};

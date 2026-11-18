@@ -6,14 +6,14 @@ import { Request, Response, NextFunction } from "express";
 import { env } from "../config/env.config";
 import prisma from "../lib/prisma.orm";
 
-// Type to decode author user ID using JWTPayload class
+// Payload written by generateAuthorToken: { userId }
 interface DecodeAuthorTokenType extends JwtPayload {
-  authorId: string;
+  userId: string;
 }
 
-// Type to decode author user ID using JWTPayload class
+// Payload written by generateViewerToken: { userId }
 interface DecodeViewerTokenType extends JwtPayload {
-  viewerId: string;
+  userId: string;
 }
 
 // Author authentication middleware handler
@@ -37,18 +37,15 @@ export const protectAuthorAuth = async (
       env.JWT_SECRET_AUTHOR!,
     ) as DecodeAuthorTokenType;
 
+    if (!decoded.userId) {
+      return res.status(401).json({ error: "Unauthorized: Invalid token" });
+    }
+
     const author = await prisma.author.findUnique({
       where: {
-        id: decoded.authorId,
+        id: decoded.userId,
       },
     });
-
-    // Throw error if token is not provided
-    if (!token) {
-      return res
-        .status(401)
-        .json({ error: "Unauthorized: token not provided" });
-    }
 
     // Throw error if user is not tagged with token
     if (!author) {
@@ -85,18 +82,15 @@ export const protectViewerAuth = async (
       env.JWT_SECRET_VIEWER!,
     ) as DecodeViewerTokenType;
 
+    if (!decoded.userId) {
+      return res.status(401).json({ error: "Unauthorized: Invalid token" });
+    }
+
     const viewer = await prisma.viewer.findUnique({
       where: {
-        id: decoded.viewerId,
+        id: decoded.userId,
       },
     });
-
-    // Throw error if token is not provided
-    if (!token) {
-      return res
-        .status(401)
-        .json({ error: "Unauthorized: token not provided" });
-    }
 
     // Throw error if user is not tagged with token
     if (!viewer) {

@@ -115,10 +115,17 @@ export const fetchAuthorProfileController = async (
   req: Request,
   res: Response,
 ) => {
-  const userId = (req as any).authorId!;
-
   try {
-    const author = await authorServices.fetchAuthorProfile(userId);
+    const userId = (req as any).author.id;
+    if (!userId) {
+      console.log("Unauthorized: Author must be logged in to fetch profile");
+      return res.status(401).json({
+        status: false,
+        error: "Unauthorized: Author must be logged in to fetch profile",
+      });
+    }
+
+    const author = await authorServices.fetchAuthorProfile(userId!);
 
     res.status(200).json({
       status: true,

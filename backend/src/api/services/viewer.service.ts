@@ -54,3 +54,30 @@ export const signUpViewer = async (
 };
 
 // TODO: Implement Login Viewer Account service after implementing cryptography handler in the frontend
+
+// Service to fetch account of Viewer
+export const fetchViewerProfile = async (userId: string) => {
+  // Fetch viewer account using the ID from the authenticated token
+  const viewer = await prisma.viewer.findUnique({
+    where: {
+      id: userId,
+    },
+  });
+  if (!viewer) {
+    throw new Error("Unauthorized: User ID was not found in the token");
+  }
+
+  // Encapsulate viewer data
+  const user = {
+    id: viewer.id,
+    firstName: viewer.firstName,
+    lastName: viewer.lastName,
+    username: viewer.username,
+    userType: viewer.userType,
+    profilePictureUrl: viewer.profilePictureUrl,
+    createdAt: viewer.createdAt,
+  };
+
+  // Return the author profile data
+  return user;
+};

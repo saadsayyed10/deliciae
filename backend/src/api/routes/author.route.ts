@@ -4,6 +4,9 @@ import { Router } from "express";
 // Import all author controllers as one instance
 import * as controllers from "../controllers/author.controller";
 
+// Author route protection middleware
+import { protectAuthorAuth } from "../../middlewares/auth.middleware";
+
 // Author routes handler
 const authorRouter = Router();
 
@@ -12,6 +15,10 @@ authorRouter.post("/signup", controllers.signUpAuthorController);
 authorRouter.post("/signin", controllers.signInAuthorController);
 
 // APIs with GET method
-authorRouter.get("/account", controllers.fetchAuthorProfileController);
+authorRouter.get(
+  "/account",
+  protectAuthorAuth,
+  controllers.fetchAuthorProfileController,
+);
 
 export default authorRouter;

@@ -127,3 +127,47 @@ export const fetchAuthorProfile = async (userId: string) => {
   // Return the author profile data
   return user;
 };
+
+// Service to update basic details of Author account
+export const updateAuthorProfile = async (
+  firstName: string,
+  lastName: string,
+  profilePictureUrl: string,
+  userId: string,
+) => {
+  // Fetch author account using the ID from the authenticated token
+  const authorId = await prisma.author.findUnique({
+    where: {
+      id: userId,
+    },
+  });
+  if (!authorId) {
+    throw new Error("Unauthorized: User ID was not found in the token");
+  }
+
+  // Update the author account
+  const author = await prisma.author.update({
+    where: {
+      id: userId,
+    },
+    data: {
+      firstName,
+      lastName,
+      profilePictureUrl,
+    },
+  });
+
+  // Encapsulate author data excluding password
+  const user = {
+    id: author.id,
+    firstName: author.firstName,
+    lastName: author.lastName,
+    email: author.email,
+    userType: author.userType,
+    profilePictureUrl: author.profilePictureUrl,
+    createdAt: author.createdAt,
+  };
+
+  // Return the author profile data
+  return user;
+};

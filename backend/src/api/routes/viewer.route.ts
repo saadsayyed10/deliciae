@@ -18,4 +18,11 @@ viewerRouter.get(
   controllers.fetchViewerProfileController,
 );
 
+// APIs with PUT method
+viewerRouter.put(
+  "/account",
+  protectViewerAuth,
+  controllers.updateViewerProfileController,
+);
+
 export default viewerRouter;

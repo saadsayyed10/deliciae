@@ -83,3 +83,44 @@ export const fetchViewerProfileController = async (
     return res.status(500).json({ status: false, error: error.message });
   }
 };
+
+/*
+Controller: To update basic details like name and profile picture for the Viewer account.
+
+Endpoint: /api/v1/viewer/account
+Method: PUT
+Authentication: True
+*/
+export const updateViewerProfileController = async (
+  req: Request,
+  res: Response,
+) => {
+  const { firstName, lastName, profilePictureUrl } = req.body;
+
+  try {
+    const userId = (req as any).viewer.id;
+    if (!userId) {
+      console.log("Unauthorized: Viewer must be logged in to fetch profile");
+      return res.status(401).json({
+        status: false,
+        error: "Unauthorized: Viewer must be logged in to fetch profile",
+      });
+    }
+
+    const viewer = await viewerServices.updateViewerProfile(
+      firstName,
+      lastName,
+      profilePictureUrl,
+      userId!,
+    );
+
+    res.status(200).json({
+      status: true,
+      message: "Updated viewer account",
+      viewer,
+    });
+  } catch (error: any) {
+    console.log(error.message);
+    return res.status(500).json({ status: false, error: error.message });
+  }
+};

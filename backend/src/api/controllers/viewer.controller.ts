@@ -58,7 +58,7 @@ Endpoint: /api/v1/viewer/account
 Method: GET
 Authentication: True
 */
-export const fetchAuthorProfileController = async (
+export const fetchViewerProfileController = async (
   req: Request,
   res: Response,
 ) => {

@@ -50,3 +50,36 @@ export const signUpViewerController = async (req: Request, res: Response) => {
     return res.status(500).json({ status: false, error: error.message });
   }
 };
+
+/*
+Controller: Fetch Viewer user profile in the settings menu for readability.
+
+Endpoint: /api/v1/viewer/account
+Method: GET
+Authentication: True
+*/
+export const fetchAuthorProfileController = async (
+  req: Request,
+  res: Response,
+) => {
+  try {
+    const userId = (req as any).author.id;
+    if (!userId) {
+      console.log("Unauthorized: Viewer must be logged in to fetch profile");
+      return res.status(401).json({
+        status: false,
+        error: "Unauthorized: Viewer must be logged in to fetch profile",
+      });
+    }
+
+    const viewer = await viewerServices.fetchViewerProfile(userId!);
+
+    res.status(200).json({
+      status: true,
+      viewer,
+    });
+  } catch (error: any) {
+    console.log(error.message);
+    return res.status(500).json({ status: false, error: error.message });
+  }
+};

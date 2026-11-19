@@ -88,6 +88,7 @@ export const signInViewer = async (username: string) => {
     createdAt: viewer.createdAt,
   };
 
+  // Return payload to the frontend
   return { token, user };
 };
 

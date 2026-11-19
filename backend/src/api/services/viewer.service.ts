@@ -74,15 +74,12 @@ export const signInViewer = async (username: string) => {
   // Generate token for authentication
   const token = generateViewerToken(viewer.id);
 
-  // Decrypt the username to send payload only to the viewer
-  const originalUsername = decryptViewerUsername(viewer.username);
-
   // Encapsulate user data excluding password
   const user = {
     id: viewer.id,
     firstName: viewer.firstName,
     lastName: viewer.lastName,
-    username: originalUsername,
+    username: viewer.username,
     userType: viewer.userType,
     profilePictureUrl: viewer.profilePictureUrl,
     createdAt: viewer.createdAt,

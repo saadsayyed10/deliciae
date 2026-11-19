@@ -56,7 +56,7 @@ Controller: To login Viewer user account using unique username for authenticatio
 
 Endpoint: /api/v1/viewer/signin
 Method: POST
-Authentication: True
+Authentication: False
 */
 export const signInViewerController = async (req: Request, res: Response) => {
   const { username } = req.body;

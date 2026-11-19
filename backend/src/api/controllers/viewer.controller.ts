@@ -52,6 +52,42 @@ export const signUpViewerController = async (req: Request, res: Response) => {
 };
 
 /*
+Controller: To login Viewer user account using unique username for authentication using JWT where token automatically expires in a span of two months.
+
+Endpoint: /api/v1/viewer/signin
+Method: POST
+Authentication: True
+*/
+export const signIpViewerController = async (req: Request, res: Response) => {
+  const { username } = req.body;
+
+  // Validate viewer username
+  if (!username || username.length <= 9) {
+    console.log("Please enter a valid username with more than 9 characters");
+    return res.status(400).json({
+      status: false,
+      error: "Please enter a valid username with more than 9 characters",
+    });
+  }
+
+  try {
+    const { token, user } = await viewerServices.signInViewer(username);
+
+    res
+      .status(200)
+      .json({
+        status: true,
+        message: "Welcome back to Deliciae...",
+        token,
+        user,
+      });
+  } catch (error: any) {
+    console.log(error.message);
+    return res.status(500).json({ status: false, error: error.message });
+  }
+};
+
+/*
 Controller: Fetch Viewer user profile in the settings menu for readability.
 
 Endpoint: /api/v1/viewer/account

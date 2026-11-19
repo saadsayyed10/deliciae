@@ -10,6 +10,7 @@ const viewerRouter = Router();
 
 // APIs with POST method
 viewerRouter.post("/signup", controllers.signUpViewerController);
+viewerRouter.post("/signin", controllers.signInViewerController);
 
 // APIs with GET method
 viewerRouter.get(

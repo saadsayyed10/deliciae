@@ -58,7 +58,7 @@ Endpoint: /api/v1/viewer/signin
 Method: POST
 Authentication: True
 */
-export const signIpViewerController = async (req: Request, res: Response) => {
+export const signInViewerController = async (req: Request, res: Response) => {
   const { username } = req.body;
 
   // Validate viewer username
@@ -73,14 +73,12 @@ export const signIpViewerController = async (req: Request, res: Response) => {
   try {
     const { token, user } = await viewerServices.signInViewer(username);
 
-    res
-      .status(200)
-      .json({
-        status: true,
-        message: "Welcome back to Deliciae...",
-        token,
-        user,
-      });
+    res.status(200).json({
+      status: true,
+      message: "Welcome back to Deliciae...",
+      token,
+      user,
+    });
   } catch (error: any) {
     console.log(error.message);
     return res.status(500).json({ status: false, error: error.message });

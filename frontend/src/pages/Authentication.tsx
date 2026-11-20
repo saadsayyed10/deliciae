@@ -1,9 +1,51 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, UserPlus, LogIn, Sparkles } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { signUpViewerAPI } from "@/api/viewer.api";
+import { Spinner } from "@/components/ui/spinner";
 
 const Authentication = () => {
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
+  // const [email, setEmail] = useState<string>("");
+  // const [password, setPassword] = useState<string>("");
+
+  const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
   const [isSignUp, setIsSignUp] = useState<boolean>(true);
+
+  const navigate = useNavigate();
+
+  const handleViewerSignUp = async () => {
+    setLoading(true);
+    try {
+      await signUpViewerAPI(firstName, lastName, username)
+        .then((res) => {
+          console.log(res.data.message);
+          console.log(res.data);
+          navigate("/authentication/handshake");
+
+          setFirstName("");
+          setLastName("");
+          setUsername("");
+
+          setError("");
+        })
+        .catch((error) => {
+          if (error?.response?.data?.error.toLowerCase().includes("invalid")) {
+            setError("Your account already exists");
+          } else {
+            setError(error?.response?.data?.error); // API specific inside error
+          }
+        });
+    } catch (error: any) {
+      setError(error.message); // General error outside API
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="flex justify-center items-center w-full min-h-screen bg-neutral-50/50 flex-col gap-y-8 text-neutral-800 font-jetbrains p-4 selection:bg-neutral-900 selection:text-white uppercase">
@@ -12,7 +54,8 @@ const Authentication = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center"
+        className="text-center cursor-none"
+        onClick={() => navigate("/authentication/author")}
       >
         <h1 className="text-2xl font-bold tracking-tight text-neutral-900">
           Deliciae
@@ -77,8 +120,10 @@ const Authentication = () => {
                   <h2 className="text-lg font-bold text-neutral-900">
                     Create Account
                   </h2>
-                  <p className="text-xs text-neutral-500">
-                    Join Deliciae as a new Viewer
+                  <p
+                    className={`text-xs ${error ? "text-red-600" : "text-neutral-500"}`}
+                  >
+                    {error ? error : "Join Deliciae as a new Viewer"}
                   </p>
                 </div>
                 <div className="w-9 h-9 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-700">
@@ -92,8 +137,9 @@ const Authentication = () => {
                     First Name
                   </label>
                   <input
-                    type="text"
                     placeholder="Saad"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
                     className="w-full bg-neutral-50 border border-black px-3.5 py-2.5 text-sm text-neutral-800 placeholder:text-neutral-400 focus:outline-none focus:border-neutral-900 focus:bg-white transition-all"
                   />
                 </div>
@@ -102,8 +148,9 @@ const Authentication = () => {
                     Last Name
                   </label>
                   <input
-                    type="text"
                     placeholder="Sayyed"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
                     className="w-full bg-neutral-50 border border-black px-3.5 py-2.5 text-sm text-neutral-800 placeholder:text-neutral-400 focus:outline-none focus:border-neutral-900 focus:bg-white transition-all"
                   />
                 </div>
@@ -114,8 +161,9 @@ const Authentication = () => {
                   Username
                 </label>
                 <input
-                  type="email"
                   placeholder="saadsayyed10"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   className="w-full bg-neutral-50 border border-black px-3.5 py-2.5 text-sm text-neutral-800 placeholder:text-neutral-400 focus:outline-none focus:border-neutral-900 focus:bg-white transition-all"
                 />
               </div>
@@ -123,11 +171,12 @@ const Authentication = () => {
               <motion.button
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
-                type="submit"
+                disabled={loading}
+                onClick={handleViewerSignUp}
                 className="mt-2 w-full bg-neutral-900 text-white py-3 text-xs uppercase font-semibold tracking-wider flex items-center justify-center gap-2 hover:bg-neutral-800 transition-colors cursor-pointer shadow-md shadow-neutral-900/10"
               >
                 <span>Complete Registration</span>
-                <ArrowRight className="w-4 h-4" />
+                {loading ? <Spinner /> : <ArrowRight className="w-4 h-4" />}
               </motion.button>
             </motion.form>
           ) : (

@@ -27,4 +27,4 @@ export const useAuth = create<Authentication>((set) => ({
   },
 }));
 
-useAuth.getState().hydrate(); // Priority to hydrate the token in any component as soon as the hook is used
+useAuth.getState().hydrate(); // Priority to hydrate the token in any component as soon as the hook is used/imported

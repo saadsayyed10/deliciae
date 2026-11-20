@@ -4,6 +4,7 @@ import { ArrowRight, UserPlus, LogIn, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { signUpViewerAPI } from "@/api/viewer.api";
 import { Spinner } from "@/components/ui/spinner";
+import { useAuth } from "@/hooks/useAuth";
 
 const Authentication = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -16,6 +17,7 @@ const Authentication = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [isSignUp, setIsSignUp] = useState<boolean>(true);
 
+  const { setToken } = useAuth();
   const navigate = useNavigate();
 
   const handleViewerSignUp = async () => {
@@ -24,6 +26,7 @@ const Authentication = () => {
       await signUpViewerAPI(firstName, lastName, username)
         .then((res) => {
           console.log(res.data.message);
+          setToken(res.data.token);
           navigate("/authentication/handshake");
 
           setFirstName("");

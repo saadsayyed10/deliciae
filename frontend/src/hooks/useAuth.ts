@@ -8,7 +8,7 @@ interface Authentication {
   logout: () => void;
 }
 
-export const useHandshake = create<Authentication>((set) => ({
+export const useAuth = create<Authentication>((set) => ({
   token: null,
 
   setToken: (token) => {
@@ -26,3 +26,5 @@ export const useHandshake = create<Authentication>((set) => ({
     set({ token: null });
   },
 }));
+
+useAuth.getState().hydrate(); // Priority to hydrate the token in any component as soon as the hook is used

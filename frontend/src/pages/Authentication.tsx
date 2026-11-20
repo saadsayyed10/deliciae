@@ -24,7 +24,6 @@ const Authentication = () => {
       await signUpViewerAPI(firstName, lastName, username)
         .then((res) => {
           console.log(res.data.message);
-          console.log(res.data);
           navigate("/authentication/handshake");
 
           setFirstName("");

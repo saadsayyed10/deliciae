@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, UserPlus, LogIn, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { signUpViewerAPI } from "@/api/viewer.api";
+import { signInViewerAPI, signUpViewerAPI } from "@/api/viewer.api";
 import { Spinner } from "@/components/ui/spinner";
 import { useAuth } from "@/hooks/useAuth";
 
@@ -38,6 +38,33 @@ const Authentication = () => {
         .catch((error) => {
           if (error?.response?.data?.error.toLowerCase().includes("invalid")) {
             setError("Your account already exists");
+          } else {
+            setError(error?.response?.data?.error); // API specific inside error
+          }
+        });
+    } catch (error: any) {
+      setError(error.message); // General error outside API
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleViewerSignIn = async () => {
+    setLoading(true);
+    try {
+      await signInViewerAPI(username)
+        .then((res) => {
+          console.log(res.data.message);
+          setToken(res.data.token);
+          navigate("/authentication/handshake");
+
+          setUsername("");
+
+          setError("");
+        })
+        .catch((error) => {
+          if (error?.response?.data?.error.toLowerCase().includes("invalid")) {
+            setError("Your account does not exist");
           } else {
             setError(error?.response?.data?.error); // API specific inside error
           }
@@ -197,8 +224,10 @@ const Authentication = () => {
                   <h2 className="text-lg font-bold text-neutral-900">
                     Welcome Back
                   </h2>
-                  <p className="text-xs text-neutral-500">
-                    Sign in to access verified Pages
+                  <p
+                    className={`text-xs ${error ? "text-red-600" : "text-neutral-500"}`}
+                  >
+                    {error ? error : "Sign in to access verified Pages"}
                   </p>
                 </div>
                 <div className="w-9 h-9 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-700">
@@ -211,7 +240,8 @@ const Authentication = () => {
                   Username
                 </label>
                 <input
-                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   placeholder="saadsayyed10"
                   className="w-full bg-neutral-50 border border-black px-3.5 py-2.5 text-sm text-neutral-800 placeholder:text-neutral-400 focus:outline-none focus:border-neutral-900 focus:bg-white transition-all"
                 />
@@ -230,11 +260,12 @@ const Authentication = () => {
               <motion.button
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
-                type="submit"
+                disabled={loading}
+                onClick={handleViewerSignIn}
                 className="mt-2 w-full bg-neutral-900 text-white py-3 text-xs uppercase font-semibold tracking-wider flex items-center justify-center gap-2 hover:bg-neutral-800 transition-colors cursor-pointer shadow-md shadow-neutral-900/10"
               >
                 <span>Sign In to Account</span>
-                <ArrowRight className="w-4 h-4" />
+                {loading ? <Spinner /> : <ArrowRight className="w-4 h-4" />}
               </motion.button>
             </motion.form>
           )}

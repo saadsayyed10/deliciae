@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Authentication from "./pages/Authentication";
 import AdminAuthentication from "./pages/AdminAuthentication";
 import Handshaking from "./pages/Handshaking";
+import Settings from "./pages/Settings";
 
 const App = () => {
   return (
@@ -16,6 +17,8 @@ const App = () => {
           element={<AdminAuthentication />}
         />
         <Route path="/authentication/handshake" element={<Handshaking />} />
+
+        <Route path="/settings" element={<Settings />} />
       </Routes>
     </Router>
   );

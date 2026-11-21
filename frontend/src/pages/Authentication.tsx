@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, UserPlus, LogIn, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +18,7 @@ const Authentication = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [isSignUp, setIsSignUp] = useState<boolean>(true);
 
-  const { setToken } = useAuth();
+  const { setToken, token } = useAuth();
   const { setUserType } = useHandshaking();
 
   const navigate = useNavigate();
@@ -41,8 +41,10 @@ const Authentication = () => {
         })
         .catch((error) => {
           if (error?.response?.data?.error.toLowerCase().includes("invalid")) {
+            console.log(error?.response?.data?.error);
             setError("Your account already exists");
           } else {
+            console.log(error?.response?.data?.error);
             setError(error?.response?.data?.error); // API specific inside error
           }
         });
@@ -80,6 +82,12 @@ const Authentication = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (token) {
+      navigate("/authentication/handshake");
+    }
+  }, [token]);
 
   return (
     <div className="flex justify-center items-center w-full min-h-screen bg-neutral-50/50 flex-col gap-y-8 text-neutral-800 font-jetbrains p-4 selection:bg-neutral-900 selection:text-white uppercase">

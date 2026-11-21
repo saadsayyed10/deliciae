@@ -1,0 +1,38 @@
+// Import Router class from express
+import { Router } from "express";
+
+// Import all author controllers as one instance
+import * as controllers from "../controllers/author.controller";
+
+// Author route protection middleware
+import { protectAuthorAuth } from "../../middlewares/auth.middleware";
+
+// Author routes handler
+const authorRouter = Router();
+
+// APIs with POST method
+authorRouter.post("/signup", controllers.signUpAuthorController);
+authorRouter.post("/signin", controllers.signInAuthorController);
+
+// APIs with GET method
+authorRouter.get(
+  "/account",
+  protectAuthorAuth,
+  controllers.fetchAuthorProfileController,
+);
+
+// APIs with PUT method
+authorRouter.put(
+  "/account",
+  protectAuthorAuth,
+  controllers.updateAuthorProfileController,
+);
+
+// APIs with DELETE method
+authorRouter.delete(
+  "/account",
+  protectAuthorAuth,
+  controllers.deleteAuthorProfileController,
+);
+
+export default authorRouter;

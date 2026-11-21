@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { User2 } from "lucide-react";
+import { Menu } from "lucide-react";
 
 const Navbar = () => {
   return (
@@ -14,8 +14,13 @@ const Navbar = () => {
       </div>
 
       <div className="flex justify-end items-end w-full">
-        <Button>
-          <User2 color="white" />
+        <Button
+          variant={"ghost"}
+          className={
+            "rounded-none border border-black bg-[#45FF17] cursor-pointer"
+          }
+        >
+          <Menu color="black" />
         </Button>
       </div>
     </div>

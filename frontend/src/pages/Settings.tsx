@@ -20,6 +20,7 @@ const Settings = () => {
     createdAt,
     username,
     userType,
+    profilePictureUrl,
     reset,
   } = useHandshaking();
   const { logout, token } = useAuth();
@@ -36,6 +37,32 @@ const Settings = () => {
     setUpdateLoader(true);
     try {
       await updateViewerProfileAPI(updateFirstName, updateLastName, token!)
+        .then((res) => {
+          console.log(res.data.message);
+
+          setFirstName(updateFirstName);
+          setLastName(updateLastName);
+          setUpdateStatus(false);
+        })
+        .catch((error) => {
+          console.log(error?.response?.data?.error);
+        });
+    } catch (error: any) {
+      console.log(error.message);
+    } finally {
+      setUpdateLoader(false);
+    }
+  };
+
+  const handleUpdatePfpViewer = async () => {
+    setUpdateLoader(true);
+    try {
+      await updateViewerProfileAPI(
+        updateFirstName,
+        updateLastName,
+        token!,
+        profilePictureUrl!,
+      )
         .then((res) => {
           console.log(res.data.message);
 
@@ -118,7 +145,11 @@ const Settings = () => {
 
             <div className="flex justify-start items-start flex-col gap-y-4 w-full border border-black bg-neutral-100">
               <div className="flex justify-start items-start flex-col sm:flex-row gap-4 lg:gap-x-4 w-full p-3 lg:p-2">
-                <div className="w-26 h-22 bg-black shrink-0" />
+                {profilePictureUrl ? (
+                  <div className="w-26 h-22 bg-red-200 shrink-0" />
+                ) : (
+                  <div className="w-26 h-22 bg-black shrink-0" />
+                )}
                 <div className="flex justify-start items-start flex-col gap-y-2 w-full">
                   {userType === "VIEWER" && (
                     <span className="text-[10px] font-extrabold text-neutral-800 lowercase duration-200 cursor-pointer">

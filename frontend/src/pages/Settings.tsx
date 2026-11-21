@@ -1,4 +1,7 @@
-import { updateViewerProfileAPI } from "@/api/viewer.api";
+import {
+  deleteViewerProfileAPI,
+  updateViewerProfileAPI,
+} from "@/api/viewer.api";
 import { Spinner } from "@/components/ui/spinner";
 import Footer from "@/custom_components/Footer";
 import Navbar from "@/custom_components/Navbar";
@@ -26,6 +29,7 @@ const Settings = () => {
 
   const [updateStatus, setUpdateStatus] = useState<boolean>(false);
   const [updateLoader, setUpdateLoader] = useState<boolean>(false);
+  const [deleteLoader, setDeleteLoader] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const handleUpdateViewer = async () => {
@@ -46,6 +50,22 @@ const Settings = () => {
       console.log(error.message);
     } finally {
       setUpdateLoader(false);
+    }
+  };
+
+  const handleDeleteViewer = async () => {
+    setDeleteLoader(true);
+    try {
+      await deleteViewerProfileAPI(token!)
+        .then(() => {
+          handleLogout();
+        })
+        .catch((error) => {
+          console.log(error?.response?.data?.error);
+        });
+    } catch (error: any) {
+    } finally {
+      setDeleteLoader(false);
     }
   };
 
@@ -111,7 +131,7 @@ const Settings = () => {
                   </p>
                   <div className="flex flex-wrap justify-start items-center gap-2 lg:gap-x-4 w-full">
                     <button className="text-[10px] font-semibold text-neutral-800 bg-[#45FF17] p-1 border border-black uppercase hover:bg-neutral-50 duration-200 cursor-pointer">
-                      Replace Profile Picture...
+                      Change Profile Picture...
                     </button>
                     <button
                       onClick={handleLogout}
@@ -138,9 +158,17 @@ const Settings = () => {
                     getting removed.
                   </p>
                   <div className="flex justify-start items-center gap-x-4 w-full">
-                    <span className="flex items-center gap-x-1 text-[10px] font-semibold text-black bg-red-600 hover:bg-white p-1 border border-black uppercase duration-200 cursor-pointer">
-                      <Trash className="text-black w-3 h-3" /> Delete my Account
-                    </span>
+                    <button
+                      onClick={handleDeleteViewer}
+                      className="flex items-center gap-x-1 text-[10px] font-semibold text-black bg-red-600 hover:bg-white p-1 border border-black uppercase duration-200 cursor-pointer"
+                    >
+                      {deleteLoader ? (
+                        <Spinner />
+                      ) : (
+                        <Trash className="text-black w-3 h-3" />
+                      )}{" "}
+                      Delete my Account
+                    </button>
                   </div>
                 </div>
               </div>
@@ -240,9 +268,17 @@ const Settings = () => {
                     getting removed.
                   </p>
                   <div className="flex justify-start items-center gap-x-4 w-full">
-                    <span className="flex items-center gap-x-1 text-[10px] font-semibold text-black bg-red-600 hover:bg-white p-1 border border-black uppercase duration-200 cursor-pointer">
-                      <Trash className="text-black w-3 h-3" /> Delete my Account
-                    </span>
+                    <button
+                      onClick={handleDeleteViewer}
+                      className="flex items-center gap-x-1 text-[10px] font-semibold text-black bg-red-600 hover:bg-white p-1 border border-black uppercase duration-200 cursor-pointer"
+                    >
+                      {deleteLoader ? (
+                        <Spinner />
+                      ) : (
+                        <Trash className="text-black w-3 h-3" />
+                      )}{" "}
+                      Delete my Account
+                    </button>
                   </div>
                 </div>
               </div>

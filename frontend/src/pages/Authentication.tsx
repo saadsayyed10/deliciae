@@ -111,7 +111,7 @@ const Authentication = () => {
       <div className="relative flex items-center bg-neutral-200/60 p-1.5 border border-neutral-300/40 shadow-inner w-85 max-w-full">
         {/* Sliding Background Pill */}
         <motion.div
-          className="absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] bg-white shadow-sm border border-black/50"
+          className="absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] bg-[#45FF17] border border-black"
           animate={{ left: isSignUp ? "6px" : "calc(50% + 0px)" }}
           transition={{ type: "spring", stiffness: 350, damping: 30 }}
         />
@@ -215,7 +215,7 @@ const Authentication = () => {
                 whileTap={{ scale: 0.99 }}
                 disabled={loading}
                 onClick={handleViewerSignUp}
-                className="mt-2 w-full bg-neutral-900 text-white py-3 text-xs uppercase font-semibold tracking-wider flex items-center justify-center gap-2 hover:bg-neutral-800 transition-colors cursor-pointer shadow-md shadow-neutral-900/10"
+                className="mt-2 w-full bg-[#45FF17] text-black border border-black py-3 text-xs uppercase font-semibold tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer"
               >
                 <span>Complete Registration</span>
                 {loading ? <Spinner /> : <ArrowRight className="w-4 h-4" />}
@@ -275,7 +275,7 @@ const Authentication = () => {
                 whileTap={{ scale: 0.99 }}
                 disabled={loading}
                 onClick={handleViewerSignIn}
-                className="mt-2 w-full bg-neutral-900 text-white py-3 text-xs uppercase font-semibold tracking-wider flex items-center justify-center gap-2 hover:bg-neutral-800 transition-colors cursor-pointer shadow-md shadow-neutral-900/10"
+                className="mt-2 w-full bg-[#45FF17] text-black border border-black py-3 text-xs uppercase font-semibold tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer"
               >
                 <span>Sign In to Account</span>
                 {loading ? <Spinner /> : <ArrowRight className="w-4 h-4" />}

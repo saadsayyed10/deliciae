@@ -58,8 +58,10 @@ const Handshaking = () => {
   }, [userType]);
 
   return (
-    <div className="flex justify-center items-center w-full min-h-screen">
-      {loading && <Loader2 size={50} />}
+    <div className="flex justify-center items-center w-full min-h-screen bg-black">
+      {loading && (
+        <Loader2 size={50} color="#45FF17" className="animate-spin" />
+      )}
       {error && (
         <h1 className="text-3xl text-red-600 font-semibold font-jetbrains uppercase text-center">
           {error}

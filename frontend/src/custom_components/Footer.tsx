@@ -1,15 +1,10 @@
 const Footer = () => {
   return (
     <div className="flex justify-between items-center w-full lg:px-8 px-6 lg:py-4 py-2 bg-neutral-100 font-jetbrains border-t border-black absolute bottom-0">
-      <div className="flex justify-start items-center gap-x-2 w-full">
+      <div className="flex justify-start items-center gap-x-1 w-full">
+        <span className="lg:w-2 w-1 lg:h-2 h-1 rounded-[100%] bg-green-400" />
         <h6 className="text-xs font-semibold text-neutral-800">
           SERVER: us-west-oregon
-        </h6>
-
-        <span className="text-neutral-300 lg:block hidden">|</span>
-
-        <h6 className="text-xs font-semibold text-neutral-800 uppercase lg:block hidden">
-          Status: OK
         </h6>
       </div>
 

@@ -6,7 +6,9 @@ const Home = () => {
     <>
       <Navbar />
 
-      <div className="flex justify-start items-start w-full lg:p-10">Home</div>
+      <div className="flex justify-start items-start w-full lg:p-10 p-6 bg-white">
+        Home
+      </div>
 
       <Footer />
     </>
